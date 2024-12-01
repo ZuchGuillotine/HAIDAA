@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
       const response = await mockLoginAPI(credentials);
       localStorage.setItem('auth_token', response.token);
       setUser(response.user);
-      router.push('/dashboard');
+      navigate('/dashboard');
     } catch (error) {
       throw new Error('Login failed');
     }
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
       // This would be an API call in production
       localStorage.removeItem('auth_token');
       setUser(null);
-      router.push('/login');
+      navigate('/login');
     } catch (error) {
       console.error('Logout failed:', error);
     }

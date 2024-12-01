@@ -1,6 +1,6 @@
 // src/components/layout/MainLayout.jsx
 import React, { useState } from 'react';
-import { Header, Sidebar, Footer } from '@/components/common';
+import { Header, Sidebar, Footer } from "@/Components/common";
 
 
 

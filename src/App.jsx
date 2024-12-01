@@ -1,8 +1,8 @@
 // src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MainLayout from '@/components/layout/MainLayout';
-import { AuthProvider } from './context/AuthContext';
+import MainLayout from '@/Components/layout/MainLayout';
+import { AuthProvider } from './Context/AuthContext';
 
 // Import your page components
 const DashboardPage = () => <div>Dashboard Content</div>; // Placeholder
