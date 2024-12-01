@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Header, Sidebar, Footer } from '@/components/common';
 
+
+
 const MainLayout = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);

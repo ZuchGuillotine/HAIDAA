@@ -1,11 +1,12 @@
 // src/context/AuthContext.jsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
+
 
 const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
-  const router = useRouter();
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
