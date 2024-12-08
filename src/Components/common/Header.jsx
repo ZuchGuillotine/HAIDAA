@@ -14,7 +14,7 @@ const Header = ({ toggleSidebar, isProfileDropdownOpen, toggleProfileDropdown })
           >
             <Menu className="h-6 w-6" />
           </button>
-          <h1 className="ml-4 text-xl font-semibold text-gray-800">Healthcare AI Assistant</h1>
+          <h1 className="ml-4 text-xl font-semibold text-gray-800">HAIDAA</h1>
         </div>
 
         <div className="flex items-center space-x-4">

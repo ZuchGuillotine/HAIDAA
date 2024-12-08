@@ -1,31 +1,40 @@
 // src/App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MainLayout from '@/Components/layout/MainLayout';
-import { AuthProvider } from './Context/AuthContext';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import LandingPage from "./Pages/Landingpage.jsx";
+import MainLayout from "./Components/layout/MainLayout";
+import { useAuth } from "./Context/AuthContext";
 
-// Import your page components
-const DashboardPage = () => <div>Dashboard Content</div>; // Placeholder
-const PatientsPage = () => <div>Patients Content</div>; // Placeholder
-const DiagnosticsPage = () => <div>Diagnostics Content</div>; // Placeholder
-const SandboxPage = () => <div>Sandbox Content</div>; // Placeholder
+const App = () => {
+  const { isAuthenticated, isLoading } = useAuth();
 
-function App() {
+  if (isLoading) {
+    return <div>Loading...</div>; // Placeholder for a loading spinner
+  }
+
   return (
     <Router>
-      <AuthProvider>
-        <MainLayout>
-          <Routes>
-            <Route path="/" element={<DashboardPage />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/patients" element={<PatientsPage />} />
-            <Route path="/diagnostics" element={<DiagnosticsPage />} />
-            <Route path="/sandbox" element={<SandboxPage />} />
-          </Routes>
-        </MainLayout>
-      </AuthProvider>
+      <Routes>
+        {/* Landing Page (Public Route) */}
+        <Route
+          path="/"
+          element={
+            isAuthenticated ? <Navigate to="/MainLayout" replace /> : <LandingPage />
+          }
+        />
+
+        {/* Authenticated Routes */}
+        <Route
+          path="/MainLayout" // Fixed to use the correct route path
+          element={
+            isAuthenticated ? <MainLayout /> : <Navigate to="/" replace />
+          }
+        />
+
+        {/* Additional authenticated or public routes can go here */}
+      </Routes>
     </Router>
   );
-}
+};
 
 export default App;

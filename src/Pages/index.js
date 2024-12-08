@@ -6,3 +6,4 @@ export { default as PatientDetailPage } from './PatientDetailPage';
 export { default as DiagnosticsPage } from './DiagnosticsPage';
 export { default as SandboxPage } from './SandboxPage';
 export { default as SettingsPage } from './SettingsPage';
+export { default as LandingPage } from './Landingpage';
