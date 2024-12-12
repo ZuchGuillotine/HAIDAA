@@ -1,13 +1,17 @@
+
 import React, { useState } from 'react';
 import { Mail, Lock } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { MFAVerification } from './';
+import AuthService from '../../services/authService';
+import { useAuth } from '../../Context/AuthContext';
 
 const LoginForm = () => {
   const [step, setStep] = useState('login');
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const { login } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -15,15 +19,8 @@ const LoginForm = () => {
     setIsLoading(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // Validate credentials (this would be done by the backend in production)
-      if (!credentials.email || !credentials.password) {
-        throw new Error('Please fill in all fields');
-      }
-
-      // If login successful, move to MFA step
+      const result = await AuthService.login(credentials.email, credentials.password);
+      await login(result);
       setStep('mfa');
     } catch (err) {
       setError(err.message || 'Login failed');
@@ -34,10 +31,7 @@ const LoginForm = () => {
 
   const handleMFAVerify = async (code) => {
     try {
-      // Simulate API call for MFA verification
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // In production, this would redirect to the dashboard
+      // Implement MFA verification logic here
       console.log('MFA verified successfully');
     } catch (err) {
       throw new Error('MFA verification failed');
@@ -116,26 +110,6 @@ const LoginForm = () => {
                   onChange={(e) => setCredentials({...credentials, password: e.target.value})}
                 />
               </div>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <input
-                id="remember-me"
-                name="remember-me"
-                type="checkbox"
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-              />
-              <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                Remember me
-              </label>
-            </div>
-
-            <div className="text-sm">
-              <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
-                Forgot your password?
-              </a>
             </div>
           </div>
 
