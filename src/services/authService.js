@@ -1,8 +1,8 @@
 
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const speakeasy = require('speakeasy');
-const pool = require('../database/db');
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import speakeasy from 'speakeasy';
+import pool from '../database/db';
 
 class AuthService {
   static async signup(email, password, role) {
@@ -83,4 +83,4 @@ class AuthService {
   }
 }
 
-module.exports = AuthService;
+export default AuthService;
