@@ -19,7 +19,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       'crypto': 'crypto-browserify',
       'buffer': 'buffer',
-      'util': 'util',
+      'util': 'util-browserify',
       'stream': 'stream-browserify',
       'events': 'events-browserify'
     }
