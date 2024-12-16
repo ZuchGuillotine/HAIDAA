@@ -1,0 +1,64 @@
+ ➜  Local:   http://localhost:5174/
+  ➜  Network: http://172.31.196.72:5174/
+  ➜  press h + enter to show help
+✘ [ERROR] No loader is configured for ".html" files: node_modules/@mapbox/node-pre-gyp/lib/util/nw-pre-gyp/index.html
+
+    node_modules/@mapbox/node-pre-gyp/lib/node-pre-gyp.js:86:21:
+      86 │       return require('./' + command)(self, argvx, callb...
+         ╵                      ~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "mock-aws-s3"
+
+    node_modules/@mapbox/node-pre-gyp/lib/util/s3_setup.js:43:28:
+      43 │     const AWSMock = require('mock-aws-s3');
+         ╵                             ~~~~~~~~~~~~~
+
+  You can mark the path "mock-aws-s3" as external to exclude it from
+  the bundle, which will remove this error and leave the unresolved
+  path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of
+  bundle-time.
+
+✘ [ERROR] Could not resolve "aws-sdk"
+
+    node_modules/@mapbox/node-pre-gyp/lib/util/s3_setup.js:76:22:
+      76 │   const AWS = require('aws-sdk');
+         ╵                       ~~~~~~~~~
+
+  You can mark the path "aws-sdk" as external to exclude it from the
+  bundle, which will remove this error and leave the unresolved path
+  in the bundle. You can also surround this "require" call with a
+  try/catch block to handle this failure at run-time instead of
+  bundle-time.
+
+✘ [ERROR] Could not resolve "nock"
+
+    node_modules/@mapbox/node-pre-gyp/lib/util/s3_setup.js:112:23:
+      112 │   const nock = require('nock');
+          ╵                        ~~~~~~
+
+  You can mark the path "nock" as external to exclude it from the
+  bundle, which will remove this error and leave the unresolved path
+  in the bundle. You can also surround this "require" call with a
+  try/catch block to handle this failure at run-time instead of
+  bundle-time.
+
+/home/runner/HAIDAA-Mockup/node_modules/esbuild/lib/main.js:1472
+  let error = new Error(text);
+              ^
+
+Error: Build failed with 4 errors:
+node_modules/@mapbox/node-pre-gyp/lib/node-pre-gyp.js:86:21: ERROR: No loader is configured for ".html" files: node_modules/@mapbox/node-pre-gyp/lib/util/nw-pre-gyp/index.html
+node_modules/@mapbox/node-pre-gyp/lib/util/s3_setup.js:43:28: ERROR: Could not resolve "mock-aws-s3"
+node_modules/@mapbox/node-pre-gyp/lib/util/s3_setup.js:76:22: ERROR: Could not resolve "aws-sdk"
+node_modules/@mapbox/node-pre-gyp/lib/util/s3_setup.js:112:23: ERROR: Could not resolve "nock"
+    at failureErrorWithLog (/home/runner/HAIDAA-Mockup/node_modules/esbuild/lib/main.js:1472:15)
+    at /home/runner/HAIDAA-Mockup/node_modules/esbuild/lib/main.js:945:25
+    at /home/runner/HAIDAA-Mockup/node_modules/esbuild/lib/main.js:1353:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter]
+}
+
+Node.js v20.16.0
+ 

@@ -19,10 +19,22 @@
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
     "@mui/material": "^6.1.9",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.1",
+    "events": "^3.3.0",
+    "events-browserify": "^0.0.1",
+    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.462.0",
+    "pg": "^8.13.1",
+    "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^7.0.1"
+    "react-router-dom": "^7.0.1",
+    "speakeasy": "^2.0.0",
+    "stream-browserify": "^3.0.0",
+    "util": "^0.12.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.25.9",
