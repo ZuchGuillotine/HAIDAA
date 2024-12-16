@@ -1,3 +1,3 @@
-// src/components/auth/index.js
-export { default as LoginForm } from './LoginForm';
-export { default as MFAVerification } from './MFAVerification';
+
+export { default as LoginForm } from './loginform';
+export { default as MFAVerification } from './MFAverification';
