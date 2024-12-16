@@ -17,12 +17,7 @@ export default defineConfig({
   },
   define: {
     'process.env': {},
-    'process.platform': JSON.stringify(''),
-    'process.version': JSON.stringify(''),
-    'Buffer': ['buffer', 'Buffer'],
-    'global': {},
-    'util.debuglog': 'util.debuglog',
-    'util.inspect': 'util.inspect'
+    global: {}
   },
   optimizeDeps: {
     exclude: ['@mapbox/node-pre-gyp', 'mock-aws-s3', 'aws-sdk', 'nock', 'bcrypt']
