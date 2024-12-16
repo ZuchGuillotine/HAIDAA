@@ -17,8 +17,8 @@ const App = () => {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route 
-        path="/dashboard/*" 
-        element={isAuthenticated ? <MainLayout /> : <LandingPage />} 
+        path="/dashboard" 
+        element={isAuthenticated ? <MainLayout /> : <LandingPage />}
       />
     </Routes>
   );

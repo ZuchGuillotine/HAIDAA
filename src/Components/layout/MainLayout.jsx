@@ -1,10 +1,9 @@
-// src/components/layout/MainLayout.jsx
+
 import React, { useState } from 'react';
-import { Header, Sidebar, Footer } from "@/Components/common";
+import { Outlet } from 'react-router-dom';
+import { Header, Sidebar, Footer } from "../common";
 
-
-
-const MainLayout = ({ children }) => {
+const MainLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
 
@@ -20,7 +19,7 @@ const MainLayout = ({ children }) => {
 
       <main className={`transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-0'}`}>
         <div className="p-6">
-          {children}
+          <Outlet />
         </div>
       </main>
 
