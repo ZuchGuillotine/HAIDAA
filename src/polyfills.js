@@ -1,6 +1,7 @@
 
 import { Buffer } from 'buffer';
 import * as util from 'util';
+import process from 'process';
 
 // Create a complete util polyfill
 const utilPolyfill = {
@@ -18,5 +19,10 @@ const utilPolyfill = {
 // Set up global polyfills
 window.Buffer = Buffer;
 window.global = window;
-window.process = { env: {} };
 window.util = utilPolyfill;
+window.process = process || {
+  env: {},
+  version: '',
+  platform: '',
+  nextTick: (fn) => setTimeout(fn, 0)
+};
