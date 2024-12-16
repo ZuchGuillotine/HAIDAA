@@ -10,6 +10,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       'crypto': 'crypto-browserify',
       'buffer': 'buffer',
+      'util': 'util',
     }
   },
   optimizeDeps: {
