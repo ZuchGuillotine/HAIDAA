@@ -20,8 +20,13 @@ const LoginForm = () => {
 
     try {
       const result = await AuthService.login(credentials.email, credentials.password);
-      await login(result);
-      setStep('mfa');
+      if (result.mfaRequired) {
+        await login(result);
+        setStep('mfa');
+      } else {
+        await login(result);
+        // User will be redirected by AuthContext
+      }
     } catch (err) {
       setError(err.message || 'Login failed');
     } finally {

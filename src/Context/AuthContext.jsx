@@ -36,7 +36,21 @@ export const AuthProvider = ({ children }) => {
       const response = await mockLoginAPI(credentials);
       localStorage.setItem('auth_token', response.token);
       setUser(response.user);
-      navigate('/dashboard');
+      
+      // Role-based navigation
+      switch (response.user.role) {
+        case 'doctor':
+          navigate('/MainLayout/doctor');
+          break;
+        case 'admin':
+          navigate('/MainLayout/admin');
+          break;
+        case 'patient':
+          navigate('/MainLayout/patient');
+          break;
+        default:
+          navigate('/MainLayout');
+      }
     } catch (error) {
       throw new Error('Login failed');
     }
