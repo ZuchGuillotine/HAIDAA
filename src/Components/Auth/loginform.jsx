@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Mail, Lock } from 'lucide-react';
-import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Alert, AlertDescription } from '../../Components/ui/alert';
 import { MFAVerification } from './';
 import AuthService from '../../services/authService';
 import { useAuth } from '../../Context/AuthContext';
