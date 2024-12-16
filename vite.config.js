@@ -13,6 +13,11 @@ export default defineConfig({
       'util': 'util',
     }
   },
+  define: {
+    'process.env': {},
+    'process.platform': JSON.stringify(''),
+    'process.version': JSON.stringify(''),
+  },
   optimizeDeps: {
     exclude: ['@mapbox/node-pre-gyp', 'mock-aws-s3', 'aws-sdk', 'nock', 'bcrypt']
   },
