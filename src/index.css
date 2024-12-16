@@ -66,6 +66,18 @@ html {
   background: #555;
 }
 
+/* Gradient animation */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient 4s ease infinite;
+}
+
 /* Utility classes */
 .text-balance {
   text-wrap: balance;
