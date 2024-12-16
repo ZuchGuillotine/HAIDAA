@@ -7,6 +7,14 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      net: 'rollup-plugin-node-polyfills/polyfills/net',
+    },
+  },
+  optimizeDeps: {
+    include: ['buffer', 'process', 'net'],
+  },
+  resolve: {
+    alias: {
       '@': path.resolve(__dirname, './src'),
       'crypto': 'crypto-browserify',
       'buffer': 'buffer',
