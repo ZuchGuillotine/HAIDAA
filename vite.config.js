@@ -7,29 +7,21 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      stream: 'stream-browserify',
-      crypto: 'crypto-browserify'
-    },
-  },
-  optimizeDeps: {
-    include: ['buffer', 'process'],
-  },
-  resolve: {
-    alias: {
       '@': path.resolve(__dirname, './src'),
       'crypto': 'crypto-browserify',
       'buffer': 'buffer',
-      'util': 'util',
       'stream': 'stream-browserify',
+      'util': 'util',
       'events': 'events-browserify'
     }
+  },
+  optimizeDeps: {
+    include: ['buffer', 'process'],
+    exclude: ['@mapbox/node-pre-gyp', 'mock-aws-s3', 'aws-sdk', 'nock', 'bcrypt']
   },
   define: {
     'process.env': {},
     global: {}
-  },
-  optimizeDeps: {
-    exclude: ['@mapbox/node-pre-gyp', 'mock-aws-s3', 'aws-sdk', 'nock', 'bcrypt']
   },
   build: {
     rollupOptions: {
@@ -37,6 +29,7 @@ export default defineConfig({
     }
   },
   server: {
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    port: 5174
   }
 });
