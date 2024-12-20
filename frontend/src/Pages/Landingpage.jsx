@@ -18,7 +18,7 @@ const LandingPage = () => {
       <header style={{ textAlign: 'center', marginBottom: '40px' }}>
         <h1 style={{ fontSize: '4rem', margin: 0 }}>HAIDAA</h1>
         <h2 style={{ fontSize: '1.5rem', marginTop: '10px', color: '#cccccc' }}>
-          your AI-powered resident
+          Your AI-powered Resident
         </h2>
       </header>
 
