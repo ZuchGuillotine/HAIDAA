@@ -1,7 +1,7 @@
 
 import express from 'express';
 import cors from 'cors';
-import { json } from 'body-parser';
+import bodyParser from 'body-parser';
 import authRoutes from './src/routes/authroutes.js';
 
 const app = express();
@@ -12,7 +12,7 @@ app.use(cors({
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
-app.use(json());
+app.use(bodyParser.json());
 
 // Mount Routes
 app.use('/api/auth', authRoutes);
