@@ -1,7 +1,7 @@
 
 class AuthService {
   constructor() {
-    this.baseUrl = 'http://0.0.0.0:3000/api/auth';  // Update with correct server URL
+    this.baseUrl = `${window.location.protocol}//${window.location.hostname}:3000/api/auth`;
   }
 
   async login(email, password) {
