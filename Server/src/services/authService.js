@@ -1,56 +1,72 @@
-
+// src/services/authService.js
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import speakeasy from 'speakeasy';
-import pool from '../../src/database/db.js';
+import pkg from 'pg';
+const { Pool } = pkg;
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL
+});
 
 class AuthService {
-  async signup(email, password, role) {
+  async login(email, password) {
     const client = await pool.connect();
+    console.log('Login attempt for:', email);
+
     try {
-      await client.query('BEGIN');
-      const existingUser = await client.query(
-        'SELECT id FROM users WHERE email = $1',
+      const result = await client.query(
+        'SELECT * FROM users WHERE email = $1',
         [email]
       );
 
-      if (existingUser.rows.length) {
-        throw new Error('User already exists');
+      console.log('Database query result:', result.rows);
+
+      const user = result.rows[0];
+      if (!user) {
+        throw new Error('Invalid credentials');
       }
 
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const mfaSecret = speakeasy.generateSecret().base32;
+      const validPassword = await bcrypt.compare(password, user.password_hash);
+      if (!validPassword) {
+        throw new Error('Invalid credentials');
+      }
 
-      const query = `
-        INSERT INTO users (email, password_hash, role, mfa_secret, created_at, updated_at)
-        VALUES ($1, $2, $3, $4, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
-        RETURNING id, email, role, created_at`;
-      const values = [email, hashedPassword, role, mfaSecret];
-
-      const result = await client.query(query, values);
-      await client.query('COMMIT');
-
-      const token = jwt.sign(
-        { userId: result.rows[0].id, role: role, mfaPending: true },
-        process.env.JWT_SECRET,
+      const tempToken = jwt.sign(
+        { 
+          userId: user.id, 
+          role: user.role,
+          mfaPending: true 
+        },
+        process.env.JWT_SECRET || 'your-secret-key',
         { expiresIn: '5m' }
       );
 
+      await client.query(
+        'UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = $1',
+        [user.id]
+      );
+
       return {
-        user: result.rows[0],
-        mfaSecret,
-        token,
-        mfaRequired: true
+        success: true,
+        user: {
+          id: user.id,
+          email: user.email,
+          role: user.role,
+          lastLogin: user.last_login
+        },
+        mfaRequired: true,
+        token: tempToken
       };
     } catch (error) {
-      await client.query('ROLLBACK');
+      console.error('Login error in service:', error);
       throw error;
     } finally {
       client.release();
     }
   }
 
-  // ... rest of the methods remain the same ...
+  // ... other methods remain the same ...
 }
 
 export default new AuthService();
