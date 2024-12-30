@@ -1,37 +1,28 @@
+const API_URL = 'http://0.0.0.0:3000/api/auth';
 
-class AuthService {
-  constructor() {
-    this.baseUrl = `${window.location.protocol}//${window.location.hostname}:3000/api/auth`;
-  }
-
+const authService = {
   async login(email, password) {
     try {
-      const response = await fetch(`${this.baseUrl}/login`, {
+      const response = await fetch(`${API_URL}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
         credentials: 'include',
+        body: JSON.stringify({ email, password }),
       });
 
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.message || 'Login failed');
+        throw new Error(error.message || 'Login failed'); //Retains original error handling for more info.
       }
 
-      const data = await response.json();
-      if (data.token) {
-        localStorage.setItem('token', data.token);
-      }
-      return data;
+      return await response.json();
     } catch (error) {
-      console.error('Login error:', error);
-      throw new Error(error.message || 'Login failed');
+      console.error('Login error:', error); //Retains original logging
+      throw new Error(error.message || 'Login failed'); //Retains original error handling
     }
   }
+};
 
-  // ... keep other methods unchanged
-}
-
-export default new AuthService();
+export default authService;

@@ -17,8 +17,15 @@ app.use(bodyParser.json());
 // Mount Routes
 app.use('/api/auth', authRoutes);
 
+// Debug logging
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+
 // Default Error Handling
 app.use((req, res) => {
+  console.log('404 Error:', req.originalUrl);
   res.status(404).json({ message: 'Endpoint not found' });
 });
 
