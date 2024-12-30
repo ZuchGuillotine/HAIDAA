@@ -2,7 +2,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import speakeasy from 'speakeasy';
-import pool from '../database/db.js';
+import pool from '../../src/database/db.js';
 
 class AuthService {
   async signup(email, password, role) {
