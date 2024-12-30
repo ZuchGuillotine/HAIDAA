@@ -1,7 +1,7 @@
 // frontend/src/services/authService.js
 class AuthService {
   constructor() {
-    this.baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/auth';
+    this.baseUrl = import.meta.env.VITE_API_URL + '/api/auth';
   }
 
   async login(email, password) {
