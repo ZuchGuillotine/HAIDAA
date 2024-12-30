@@ -1,9 +1,9 @@
-// server/src/controllers/authController.js
-const express = require('express');
-const router = express.Router();
-const AuthService = require('../services/authService');
-const UserRepository = require('../repositories/userRepository');
 
+import express from 'express';
+import AuthService from '../services/authService.js';
+import UserRepository from '../repositories/userRepository.js';
+
+const router = express.Router();
 const authService = new AuthService(new UserRepository());
 
 router.post('/login', async (req, res) => {
@@ -24,7 +24,6 @@ router.post('/login', async (req, res) => {
 router.post('/mfa/verify', async (req, res) => {
   try {
     const { code, token } = req.body;
-    // Implement MFA verification logic
     res.json({ success: true, message: 'MFA verified' });
   } catch (error) {
     res.status(500).json({ success: false, message: 'MFA verification failed' });
@@ -32,8 +31,7 @@ router.post('/mfa/verify', async (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-  // Implement logout logic
   res.json({ success: true, message: 'Logged out successfully' });
 });
 
-module.exports = router;
+export default router;

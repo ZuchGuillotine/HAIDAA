@@ -1,7 +1,8 @@
-// Backend: server/src/routes/authRoutes.js
-const express = require('express');
+
+import express from 'express';
+import authService from '../services/authService.js';
+
 const router = express.Router();
-const authService = require('../services/authService');
 
 router.post('/signup', async (req, res) => {
   try {
@@ -33,4 +34,4 @@ router.post('/verify-mfa', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
