@@ -1,4 +1,5 @@
-run = "npm run dev"
+
+run = "npm run dev & cd Server && node server.js"
 modules = ["nodejs-20", "postgresql-16"]
 hidden = [".config", "package-lock.json"]
 entrypoint = "index.html"
