@@ -1,19 +1,17 @@
 // frontend/src/services/authService.js
 class AuthService {
   constructor() {
-    // Use the current window location
+    // Get the base URL from the current window location
     const host = window.location.hostname;
-    // Don't include the port if it's 3003 (Vite dev server)
-    const port = window.location.port === '3003' ? '3000' : window.location.port;
-    this.baseUrl = `https://${host}:${port}/api/auth`;
-    console.log('Initialized AuthService with baseUrl:', this.baseUrl);
+    // Use the Replit-specific domain but with port 3000
+    this.baseUrl = `https://${host}:3000/api/auth`;
+    console.log('AuthService initialized with baseUrl:', this.baseUrl);
   }
 
   async login(email, password) {
     try {
       const loginUrl = `${this.baseUrl}/login`;
-      console.log('Making login request to:', loginUrl);
-      console.log('Request payload:', { email, password: '****' });
+      console.log('Attempting login request to:', loginUrl);
 
       const response = await fetch(loginUrl, {
         method: 'POST',
@@ -23,28 +21,30 @@ class AuthService {
         body: JSON.stringify({ email, password })
       });
 
-      console.log('Response status:', response.status);
-
-      // Try to get response text first
-      const responseText = await response.text();
-      console.log('Response text:', responseText);
+      console.log('Login response status:', response.status);
 
       if (!response.ok) {
-        throw new Error(responseText || 'Login failed');
+        let errorMessage;
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message;
+        } catch {
+          errorMessage = 'Login failed';
+        }
+        throw new Error(errorMessage);
       }
 
-      // Parse the response text if it exists
-      const data = responseText ? JSON.parse(responseText) : {};
+      const data = await response.json();
+      console.log('Login successful, received data:', { ...data, token: data.token ? '[HIDDEN]' : undefined });
 
       if (data.token) {
         localStorage.setItem('token', data.token);
       }
       return data;
     } catch (error) {
-      console.error('Login error details:', {
+      console.error('Login error:', {
         message: error.message,
-        url: this.baseUrl,
-        error
+        url: loginUrl,
       });
       throw error;
     }
