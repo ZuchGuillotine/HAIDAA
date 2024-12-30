@@ -1,33 +1,7 @@
-// Frontend: src/services/authService.js
+
 class AuthService {
-  constructor(baseUrl = '/api/auth') {
-    this.baseUrl = baseUrl;
-  }
-
-  async signup(email, password, role) {
-    try {
-      const response = await fetch(`${this.baseUrl}/signup`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password, role }),
-        credentials: 'include',
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.message || 'Signup failed');
-      }
-
-      const data = await response.json();
-      if (data.token) {
-        localStorage.setItem('token', data.token);
-      }
-      return data;
-    } catch (error) {
-      throw new Error(error.message || 'Signup failed');
-    }
+  constructor() {
+    this.baseUrl = 'http://0.0.0.0:3000/api/auth';  // Update with correct server URL
   }
 
   async login(email, password) {
@@ -47,46 +21,17 @@ class AuthService {
       }
 
       const data = await response.json();
-      return {
-        user: data.user,
-        mfaRequired: data.mfaRequired,
-        token: data.token
-      };
-    } catch (error) {
-      throw new Error(error.message || 'Login failed');
-    }
-  }
-
-  async verifyMFA(userId, token) {
-    try {
-      const response = await fetch(`${this.baseUrl}/verify-mfa`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        body: JSON.stringify({ userId, token }),
-        credentials: 'include',
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.message || 'MFA verification failed');
-      }
-
-      const data = await response.json();
       if (data.token) {
         localStorage.setItem('token', data.token);
       }
       return data;
     } catch (error) {
-      throw new Error(error.message || 'MFA verification failed');
+      console.error('Login error:', error);
+      throw new Error(error.message || 'Login failed');
     }
   }
 
-  logout() {
-    localStorage.removeItem('token');
-  }
+  // ... keep other methods unchanged
 }
 
 export default new AuthService();
