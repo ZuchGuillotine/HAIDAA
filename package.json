@@ -25,6 +25,7 @@
     "crypto-browserify": "^3.12.1",
     "events": "^3.3.0",
     "events-browserify": "^0.0.1",
+    "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.462.0",
     "pg": "^8.13.1",
