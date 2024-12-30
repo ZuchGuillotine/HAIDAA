@@ -1,4 +1,5 @@
-const API_URL = 'http://0.0.0.0:3000/api/auth';
+
+const API_URL = '/api/auth';
 
 const authService = {
   async login(email, password) {
@@ -14,13 +15,13 @@ const authService = {
 
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.message || 'Login failed'); //Retains original error handling for more info.
+        throw new Error(error.message || 'Login failed');
       }
 
       return await response.json();
     } catch (error) {
-      console.error('Login error:', error); //Retains original logging
-      throw new Error(error.message || 'Login failed'); //Retains original error handling
+      console.error('Login error:', error);
+      throw new Error(error.message || 'Login failed');
     }
   }
 };
