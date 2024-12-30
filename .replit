@@ -2,10 +2,17 @@
 run = "npm run dev & (cd Server && node server.js)"
 modules = ["nodejs-20", "postgresql-16"]
 hidden = [".config", "package-lock.json"]
-entrypoint = "index.html"
+entrypoint = "server.js"
+
+[env]
+PORT = "3000"
+
+[[hints]]
+regex = "Error: "
+message = "Oops! There was an error"
 
 [nix]
-channel = "stable-24_05"
+channel = "stable-22_11"
 
 [unitTest]
 language = "nodejs"

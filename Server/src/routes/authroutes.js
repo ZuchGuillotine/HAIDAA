@@ -1,4 +1,4 @@
-
+// src/routes/authroutes.js
 import express from 'express';
 import authService from '../services/authService.js';
 
@@ -38,4 +38,5 @@ router.post('/verify-mfa', async (req, res) => {
   }
 });
 
+// Change the export to use export default
 export default router;
