@@ -2,7 +2,8 @@
 class AuthService {
   constructor() {
     // Get the current origin (includes protocol, hostname, and port)
-    this.baseUrl = `${window.location.origin}/api/auth`;
+    const { protocol, hostname } = window.location;
+    this.baseUrl = `${protocol}//${hostname}:3000/api/auth`;
     console.log('API URL:', this.baseUrl);
   }
 

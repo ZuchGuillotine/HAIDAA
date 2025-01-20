@@ -28,7 +28,14 @@ app.get('/', (req, res) => {
 });
 
 // Mount auth routes
+// Mount auth routes
 app.use('/api/auth', authRouter);
+
+// Add a catch-all route for debugging
+app.use('*', (req, res) => {
+  console.log('Request received:', req.method, req.originalUrl);
+  res.status(404).json({ message: 'Route not found' });
+});
 
 // Error handling
 app.use((err, req, res, next) => {
