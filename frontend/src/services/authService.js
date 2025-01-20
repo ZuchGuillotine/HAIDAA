@@ -1,7 +1,7 @@
 class AuthService {
   constructor() {
-    // Use relative URL since we're proxying through Vite
-    this.baseUrl = '/api/auth';
+    this.baseUrl = `${window.location.protocol}//${window.location.hostname}:3000/api/auth`;
+    console.log('Using API URL:', this.baseUrl);
   }
 
   isAuthenticated() {

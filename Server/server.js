@@ -28,8 +28,14 @@ app.get('/', (req, res) => {
   res.json({ status: 'ok', message: 'Server is running' });
 });
 
-// Mount auth routes
+// Mount auth routes with explicit paths
 app.use('/api/auth', authRouter);
+
+// Add route logging
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
 
 // Add a catch-all route for debugging
 app.use('*', (req, res) => {
