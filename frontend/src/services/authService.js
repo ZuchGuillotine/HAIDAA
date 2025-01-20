@@ -4,6 +4,14 @@ class AuthService {
     this.baseUrl = '/api/auth';
   }
 
+  isAuthenticated() {
+    return !!localStorage.getItem('token');
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
   async login(email, password) {
     try {
       const response = await fetch(`${this.baseUrl}/login`, {

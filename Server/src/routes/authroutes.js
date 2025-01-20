@@ -1,8 +1,14 @@
 // src/routes/authroutes.js
 import express from 'express';
 import authService from '../services/authService.js';
+import { verifyToken } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
+
+// Test endpoint to verify auth
+router.get('/verify', verifyToken, (req, res) => {
+  res.json({ success: true, user: req.user });
+});
 
 // Add a test route to verify the router is mounted
 router.get('/test', (req, res) => {
