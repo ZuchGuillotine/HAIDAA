@@ -1,9 +1,9 @@
 // frontend/src/services/authService.js
 class AuthService {
   constructor() {
-    // Get the current origin (includes protocol, hostname, and port)
-    const { protocol, hostname } = window.location;
-    this.baseUrl = `${protocol}//${hostname}:3000/api/auth`;
+    const { hostname } = window.location;
+    // Use HTTP for development on port 3000
+    this.baseUrl = `http://${hostname.split(':')[0]}:3000/api/auth`;
     console.log('API URL:', this.baseUrl);
   }
 
