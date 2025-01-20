@@ -1,10 +1,8 @@
 // frontend/src/services/authService.js
 class AuthService {
   constructor() {
-    // Get the current hostname without the port
-    const hostname = window.location.hostname;
-    // Construct the API URL using the Replit domain
-    this.baseUrl = `https://${hostname}/api/auth`;
+    // Get the current origin (includes protocol, hostname, and port)
+    this.baseUrl = `${window.location.origin}/api/auth`;
     console.log('API URL:', this.baseUrl);
   }
 
@@ -16,6 +14,7 @@ class AuthService {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify({ email, password })
       });
 
