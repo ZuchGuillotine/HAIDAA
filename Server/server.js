@@ -5,7 +5,7 @@ import authRouter from './src/routes/authroutes.js';
 
 const app = express();
 
-// CORS configuration specific to Replit
+// CORS configuration specific to Replit - already robust
 app.use(cors({
   origin: '*',
   credentials: true,
@@ -27,7 +27,6 @@ app.get('/', (req, res) => {
   res.json({ status: 'ok', message: 'Server is running' });
 });
 
-// Mount auth routes
 // Mount auth routes
 app.use('/api/auth', authRouter);
 
