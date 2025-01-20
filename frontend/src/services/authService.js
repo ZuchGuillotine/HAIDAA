@@ -1,19 +1,17 @@
 // frontend/src/services/authService.js
 class AuthService {
   constructor() {
-    // Get the base URL from the current window location
-    const host = window.location.hostname;
-    // Use the Replit-specific domain but with port 3000
-    this.baseUrl = `https://${host}:3000/api/auth`;
-    console.log('AuthService initialized with baseUrl:', this.baseUrl);
+    // Get the current hostname without the port
+    const hostname = window.location.hostname;
+    // Construct the API URL using the Replit domain
+    this.baseUrl = `https://${hostname}/api/auth`;
+    console.log('API URL:', this.baseUrl);
   }
 
   async login(email, password) {
     try {
-      const loginUrl = `${this.baseUrl}/login`;
-      console.log('Attempting login request to:', loginUrl);
-
-      const response = await fetch(loginUrl, {
+      console.log('Attempting login...');
+      const response = await fetch(`${this.baseUrl}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -21,31 +19,22 @@ class AuthService {
         body: JSON.stringify({ email, password })
       });
 
-      console.log('Login response status:', response.status);
+      console.log('Response status:', response.status);
 
       if (!response.ok) {
-        let errorMessage;
-        try {
-          const errorData = await response.json();
-          errorMessage = errorData.message;
-        } catch {
-          errorMessage = 'Login failed';
-        }
-        throw new Error(errorMessage);
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Login failed');
       }
 
       const data = await response.json();
-      console.log('Login successful, received data:', { ...data, token: data.token ? '[HIDDEN]' : undefined });
+      console.log('Login successful');
 
       if (data.token) {
         localStorage.setItem('token', data.token);
       }
       return data;
     } catch (error) {
-      console.error('Login error:', {
-        message: error.message,
-        url: loginUrl,
-      });
+      console.error('Login error:', error);
       throw error;
     }
   }

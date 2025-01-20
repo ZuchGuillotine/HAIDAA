@@ -1,18 +1,10 @@
-
-run = "npm run dev & (cd Server && node server.js)"
+run = "npm run dev"
 modules = ["nodejs-20", "postgresql-16"]
 hidden = [".config", "package-lock.json"]
-entrypoint = "server.js"
-
-[env]
-PORT = "3000"
-
-[[hints]]
-regex = "Error: "
-message = "Oops! There was an error"
+entrypoint = "index.html"
 
 [nix]
-channel = "stable-22_11"
+channel = "stable-24_05"
 
 [unitTest]
 language = "nodejs"
@@ -21,10 +13,6 @@ language = "nodejs"
 deploymentTarget = "static"
 build = ["npm", "run", "build"]
 publicDir = "dist"
-
-[[ports]]
-localPort = 3000
-externalPort = 3003
 
 [[ports]]
 localPort = 5173
