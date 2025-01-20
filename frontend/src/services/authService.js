@@ -1,9 +1,10 @@
 
 class AuthService {
   constructor() {
-    // Use window.location to get the current hostname and protocol
     const { protocol, hostname } = window.location;
-    this.baseUrl = `${protocol}//${hostname}:3000/api/auth`;
+    // Remove port from hostname if present
+    const baseHostname = hostname.split(':')[0];
+    this.baseUrl = `${protocol}//${baseHostname}:3000/api/auth`;
     console.log('API URL:', this.baseUrl);
   }
 
