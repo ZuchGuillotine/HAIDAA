@@ -1,4 +1,3 @@
-
 class AuthService {
   constructor() {
     this.baseUrl = '/api/auth';
@@ -7,7 +6,6 @@ class AuthService {
 
   async login(email, password) {
     try {
-      console.log('Attempting login...');
       const response = await fetch(`${this.baseUrl}/login`, {
         method: 'POST',
         headers: {
@@ -18,15 +16,21 @@ class AuthService {
       });
 
       console.log('Response status:', response.status);
+      const text = await response.text();
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Login failed');
+      let data;
+      try {
+        data = text ? JSON.parse(text) : {};
+      } catch (e) {
+        console.error('Failed to parse response:', text);
+        throw new Error('Invalid server response');
       }
 
-      const data = await response.json();
-      console.log('Login successful');
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
 
+      console.log('Login successful');
       if (data.token) {
         localStorage.setItem('token', data.token);
       }

@@ -27,9 +27,10 @@ router.post('/login', async (req, res) => {
     const result = await authService.login(email, password);
     console.log('Login successful:', { ...result, token: '[HIDDEN]' });
 
-    return res.json({
+    return res.status(200).json({
       success: true,
-      ...result
+      token: result.token || '',
+      user: result.user || null
     });
   } catch (error) {
     console.error('Login error:', error);
