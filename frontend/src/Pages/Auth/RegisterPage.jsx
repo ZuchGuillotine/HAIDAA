@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { RegisterForm } from '@/components/auth';
+import { RegisterForm } from '../../Components/Auth';
 
 const RegisterPage = () => {
   return (
