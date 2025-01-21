@@ -58,9 +58,13 @@ class AuthService {
     console.log('Login attempt for:', email);
 
     try {
+      if (!email || typeof email !== 'string' || !email.includes('@')) {
+        throw new Error('Invalid email format');
+      }
+
       const result = await client.query(
-        'SELECT * FROM users WHERE email = $1',
-        [email]
+        'SELECT id, email, password_hash, role FROM users WHERE email = $1 AND active = true',
+        [email.toLowerCase()]
       );
 
       const user = result.rows[0];
