@@ -1,7 +1,6 @@
-// src/services/authService.js
+
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import speakeasy from 'speakeasy';
 import pkg from 'pg';
 const { Pool } = pkg;
 
@@ -10,6 +9,50 @@ const pool = new Pool({
 });
 
 class AuthService {
+  async register(email, password) {
+    const client = await pool.connect();
+    console.log('Registration attempt for:', email);
+
+    try {
+      // Check if user exists
+      const existingUser = await client.query(
+        'SELECT * FROM users WHERE email = $1',
+        [email]
+      );
+
+      if (existingUser.rows.length > 0) {
+        throw new Error('User already exists');
+      }
+
+      // Hash password
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
+
+      // Insert new user
+      const result = await client.query(
+        'INSERT INTO users (email, password_hash) VALUES ($1, $2) RETURNING id, email, role',
+        [email, hashedPassword]
+      );
+
+      const user = result.rows[0];
+      console.log('User registered successfully:', user.email);
+
+      return {
+        success: true,
+        user: {
+          id: user.id,
+          email: user.email,
+          role: user.role
+        }
+      };
+    } catch (error) {
+      console.error('Registration error:', error);
+      throw error;
+    } finally {
+      client.release();
+    }
+  }
+
   async login(email, password) {
     const client = await pool.connect();
     console.log('Login attempt for:', email);
@@ -20,53 +63,45 @@ class AuthService {
         [email]
       );
 
-      console.log('Database query result:', result.rows);
-
       const user = result.rows[0];
       if (!user) {
+        console.log('User not found:', email);
         throw new Error('Invalid credentials');
       }
 
       const validPassword = await bcrypt.compare(password, user.password_hash);
       if (!validPassword) {
+        console.log('Invalid password for user:', email);
         throw new Error('Invalid credentials');
       }
 
-      const tempToken = jwt.sign(
+      const token = jwt.sign(
         { 
           userId: user.id, 
           role: user.role,
-          mfaPending: true 
+          email: user.email
         },
-        process.env.JWT_SECRET || 'your-secret-key',
-        { expiresIn: '5m' }
+        process.env.JWT_SECRET,
+        { expiresIn: '1h' }
       );
 
-      await client.query(
-        'UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = $1',
-        [user.id]
-      );
-
+      console.log('Login successful for:', email);
       return {
         success: true,
         user: {
           id: user.id,
           email: user.email,
-          role: user.role,
-          lastLogin: user.last_login
+          role: user.role
         },
-        mfaRequired: true,
-        token: tempToken
+        token
       };
     } catch (error) {
-      console.error('Login error in service:', error);
+      console.error('Login error:', error);
       throw error;
     } finally {
       client.release();
     }
   }
-
-  // ... other methods remain the same ...
 }
 
 export default new AuthService();
