@@ -112,6 +112,11 @@ const LoginForm = () => {
               {isLoading ? 'Signing in...' : 'Sign in'}
             </button>
           </div>
+          <div className="text-center mt-4">
+            <a href="/register" className="text-blue-600 hover:text-blue-800">
+              Don't have an account? Register here
+            </a>
+          </div>
         </form>
       </div>
     </div>
