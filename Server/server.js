@@ -6,7 +6,10 @@ import authRouter from './src/routes/authroutes.js';
 const app = express();
 
 // CORS configuration specific to Replit - already robust
-app.use(cors());
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');

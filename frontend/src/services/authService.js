@@ -1,6 +1,6 @@
 class AuthService {
   constructor() {
-    this.baseUrl = `${window.location.protocol}//${window.location.hostname}:3000/api/auth`;
+    this.baseUrl = '/api/auth';
     console.log('Using API URL:', this.baseUrl);
   }
 

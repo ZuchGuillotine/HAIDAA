@@ -4,7 +4,7 @@ import AuthService from '../services/authService.js';
 import UserRepository from '../repositories/userRepository.js';
 
 const router = express.Router();
-const authService = new AuthService(new UserRepository());
+const authService = AuthService;
 
 router.post('/register', async (req, res) => {
   try {
