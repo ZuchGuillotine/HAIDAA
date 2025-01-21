@@ -1,7 +1,7 @@
 class AuthService {
   constructor() {
     // Use relative URL that will work in all environments
-    this.baseUrl = '/api/auth';
+    this.baseUrl = 'http://0.0.0.0:3001/api/auth';
     console.log('Using API URL:', this.baseUrl);
   }
 
