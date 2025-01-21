@@ -14,15 +14,20 @@ class AuthService {
 
   async register(email, password) {
     try {
+      console.log('Attempting registration with:', { email });
       const response = await fetch(`${this.baseUrl}/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify({ email, password })
       });
 
+      console.log('Registration response status:', response.status);
       const text = await response.text();
+      console.log('Registration response text:', text);
+
       let data;
       try {
         data = text ? JSON.parse(text) : {};
