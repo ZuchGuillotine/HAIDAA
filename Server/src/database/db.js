@@ -17,4 +17,9 @@ pool.on('error', (err) => {
   process.exit(-1);
 });
 
+db.authenticate()
+.then(() => console.log("Database connected successfully."))
+.catch((err) => console.error("Error connecting to the database:", err));
+
+
 export default pool;
