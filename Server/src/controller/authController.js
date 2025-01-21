@@ -21,7 +21,15 @@ router.post('/register', async (req, res) => {
 
     const result = await authService.register(email, password);
     console.log('Registration successful for:', email);
-    res.json(result);
+    return res.status(201).json({
+      success: true,
+      user: {
+        id: result.user.id,
+        email: result.user.email,
+        role: result.user.role
+      },
+      message: 'Registration successful'
+    });
   } catch (error) {
     console.error('Registration error:', error.message);
     res.status(error.message === 'User already exists' ? 409 : 500).json({
