@@ -39,10 +39,16 @@ router.post('/login', async (req, res) => {
     }
     console.log('Login successful:', { token: '[HIDDEN]' });
 
+    const token = jwt.sign(
+      { userId: result.user.id, email: result.user.email, role: result.user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+    
     return res.status(200).json({
       success: true,
-      token: 'dummy-token', // Temporary for testing
-      user: { email }
+      token,
+      user: result.user
     });
   } catch (error) {
     console.error('Login error:', error);

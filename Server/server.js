@@ -18,6 +18,23 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
+app.use(cors());
+
+// Placeholder JWT verification middleware - REPLACE THIS WITH ACTUAL IMPLEMENTATION
+const verifyToken = (req, res, next) => {
+  const token = req.headers.authorization;
+  if (!token) return res.status(403).json({ message: 'Token is missing' });
+  // In a real application, verify the token here using a library like jsonwebtoken
+  // Example: const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  // req.user = decoded;
+  next();
+};
+
+
+// Protected route example
+app.use('/api/protected', verifyToken, (req, res) => {
+  res.json({ message: 'This is a protected route', user: req.user });
+});
 
 // Request logging
 app.use((req, res, next) => {

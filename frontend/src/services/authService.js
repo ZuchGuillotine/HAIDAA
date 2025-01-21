@@ -15,6 +15,10 @@ class AuthService {
   async login(email, password) {
     try {
       const response = await fetch(`${this.baseUrl}/login`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.getToken()}`
+        },
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
