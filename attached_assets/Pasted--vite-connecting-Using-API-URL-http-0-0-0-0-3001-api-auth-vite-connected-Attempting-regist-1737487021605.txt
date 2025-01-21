@@ -1,0 +1,24 @@
+[vite] connecting...
+Using API URL: http://0.0.0.0:3001/api/auth
+[vite] connected.
+Attempting registration with: 
+Object {email: "bencox820@hotmail.com"}
+Registration error: 
+TypeError {}
+message: "Failed to fetch"
+stack: "TypeError: Failed to fetch↵ at window.fetch (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/__replco/static/devtools/eruda/3.2.3/eruda.js:2:218642)↵ at AuthService.register (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/frontend/src/services/authService.js:18:30)↵ at handleSubmit (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/frontend/src/Components/Auth/registerform.jsx:37:25)↵ at HTMLUnknownElement.callCallback2 (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:3674:22)↵ at Object.invokeGuardedCallbackDev (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:3699:24)↵ at invokeGuardedCallback (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:3733:39)↵ at invokeGuardedCallbackAndCatchFirstError (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:3736:33)↵ at executeDispatch (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:7014:11)↵ at processDispatchQueueItemsInOrder (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:7034:15)↵ at processDispatchQueue (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:7043:13)"
+get stack: ƒ ()
+set stack: ƒ ()
+[[Prototype]]: Object
+
+Failed to fetch
+at window.fetch (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/__replco/static/devtools/eruda/3.2.3/eruda.js:2:218642)
+at AuthService.register (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/frontend/src/services/authService.js:18:30)
+at handleSubmit (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/frontend/src/Components/Auth/registerform.jsx:37:25)
+at HTMLUnknownElement.callCallback2 (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:3674:22)
+at Object.invokeGuardedCallbackDev (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:3699:24)
+at invokeGuardedCallback (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:3733:39)
+at invokeGuardedCallbackAndCatchFirstError (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:3736:33)
+at executeDispatch (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:7014:11)
+at processDispatchQueueItemsInOrder (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:7034:15)
+at processDispatchQueue (https://e1cd38df-4b3d-465c-8a58-97c36561cf04-00-13gshp83w7ccp.kirk.replit.dev:3000/node_modules/.vite/deps/chunk-IA5K47JS.js?v=6d9d84ea:7043:13)
