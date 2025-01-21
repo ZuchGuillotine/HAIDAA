@@ -1,6 +1,6 @@
 // src/pages/Auth/LoginPage.jsx
 import React from 'react';
-import { LoginForm } from '@/components/auth';
+import { LoginForm } from '../../Components/Auth';
 
 const LoginPage = () => {
   return (
