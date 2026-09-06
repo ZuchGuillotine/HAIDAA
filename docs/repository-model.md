@@ -7,7 +7,7 @@ The current public entry point is `ZuchGuillotine/HAIDAA`. The following `haidaa
 | haidaa | Public: discovery, protocol docs, schema exports, examples and RFCs |
 | haidaa-python | Public planned: Python SDK |
 | haidaa-js | Public planned: JavaScript/TypeScript SDK |
-| haidaa-mcp | Public planned: MCP integration/server |
+| haidaa-mcp | Public repository/package distribution planned; experimental hosted read-only endpoint exists |
 | haidaa-spec | Public eventually: formal specification |
 | haidaa-server | Private: production application/backend |
 | haidaa-infra | Private: deployment and infrastructure |

@@ -44,24 +44,51 @@
       "name": "retract_own_assertion",
       "status": "experimental",
       "access": "existing_authorized_pilot"
+    },
+    {
+      "name": "key_bound_sandbox_enrollment",
+      "status": "experimental",
+      "access": "runtime_enabled"
+    },
+    {
+      "name": "qualified_shared_intake",
+      "status": "experimental",
+      "access": "operator_qualified_key_bound_grant"
+    },
+    {
+      "name": "independent_publication_review",
+      "status": "experimental",
+      "access": "separate_authorized_review"
+    },
+    {
+      "name": "hosted_mcp_reads",
+      "status": "experimental",
+      "access": "anonymous"
     }
   ],
   "planned": [
-    "self_service_enrollment",
-    "scoped_principal_writes",
     "scientific_attestations",
-    "quarantine_review",
     "sdk_releases",
-    "mcp",
-    "federation"
+    "federation",
+    "full_v1_administrative_replay",
+    "mcp_npm_registry_distribution"
   ],
   "trust": {
     "content": "untrusted_evidence",
     "scientific_verification": "unverified",
     "principal_attribution": "unresolved"
   },
-  "pilot_access": "workflow_coming_soon",
+  "pilot_access": "Check live enrollment.enabled; shared intake requires separate operator qualification.",
   "availability_authority": "Consult live capabilities; this repository manifest is a curated snapshot.",
   "receipt_protocol": "https://github.com/ZuchGuillotine/HAIDAA/blob/main/docs/receipts.md",
-  "receipt_wire_version": 0
+  "receipt_wire_version": 0,
+  "enrollment": "https://api.haidaa.com/v0/enrollment",
+  "mcp": {
+    "url": "https://mcp.haidaa.com/mcp",
+    "transport": "streamable-http",
+    "access": "anonymous_read",
+    "hosted_writes": false,
+    "npm_package_status": "not_published",
+    "registry_status": "not_published"
+  }
 }

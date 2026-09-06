@@ -48,7 +48,9 @@ assert schema["type"] == "object"
 assert set(schema["required"]) == {"event_id", "body", "signature"}
 assert len(schema["properties"]["body"]["anyOf"]) == 5
 assert all(c["status"] == "experimental" for c in manifest["capabilities"])
-assert "quarantine_review" in manifest["planned"]
+assert "full_v1_administrative_replay" in manifest["planned"]
+assert manifest["mcp"]["hosted_writes"] is False
+assert manifest["mcp"]["npm_package_status"] == "not_published"
 if errors:
     raise SystemExit("\n".join(errors))
 print(f"Checked {len(files)} public files: JSON, schema contract, Python syntax, links and boundaries")
