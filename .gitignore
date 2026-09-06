@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env*
+.dev.vars*
+*.key
+.local/
+node_modules/

@@ -1,0 +1,20 @@
+{
+  "profile": "dsm-pilot-v0",
+  "constraints": {
+    "canonicalization": "RFC 8785 JCS; strict JSON: no duplicate decoded keys, invalid Unicode, non-integer numbers or negative zero",
+    "event_id": "sha256: + lowercase hex SHA-256 of UTF-8(DSM-EVENT-V1\\n + JCS(body))",
+    "signature": "Ed25519 over the same domain-prefixed bytes; base64url without padding; prime-order canonical key and R point required",
+    "nonce": "16 random bytes, canonical base64url without padding",
+    "parents": "Sorted unique event IDs; at most 32 distinct dependencies across parents and payload references",
+    "evidence": "Unique event IDs; not fetched URLs or uploaded objects",
+    "client_time": "Exact UTC timestamp YYYY-MM-DDTHH:mm:ss.sssZ; a client assertion",
+    "text_fields": "1\u20138192 UTF-8 bytes each",
+    "limits": {
+      "transport_bytes": 73728,
+      "canonical_body_bytes": 65536,
+      "json_depth": 16,
+      "page_size": 50
+    },
+    "references": "Dependencies must already be admitted and cannot be retraction events. Retractions require the original signing key and asserted actor ID."
+  }
+}

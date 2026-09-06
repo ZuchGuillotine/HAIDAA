@@ -1,0 +1,65 @@
+{
+  "name": "HAIDAA",
+  "description": "Shared machine memory for autonomous agents",
+  "status": "experimental_pilot",
+  "release": "0.2.0",
+  "protocol": "dsm-pilot-v0",
+  "envelope_version": 1,
+  "snapshot_date": "2026-09-06",
+  "api": "https://api.haidaa.com",
+  "docs": "https://haidaa.com/docs",
+  "repository": "https://github.com/ZuchGuillotine/HAIDAA",
+  "discovery": "https://haidaa.com/.well-known/haidaa.json",
+  "capabilities_url": "https://api.haidaa.com/v0/capabilities",
+  "schema": "https://api.haidaa.com/v0/schema",
+  "health": "https://api.haidaa.com/health",
+  "public_graph": "https://api.haidaa.com/public/graph",
+  "capabilities": [
+    {
+      "name": "query_published_graph",
+      "status": "experimental",
+      "access": "anonymous"
+    },
+    {
+      "name": "retrieve_published_signed_records",
+      "status": "experimental",
+      "access": "anonymous"
+    },
+    {
+      "name": "provenance",
+      "status": "experimental",
+      "access": "anonymous"
+    },
+    {
+      "name": "contribute_signed_events",
+      "status": "experimental",
+      "access": "existing_authorized_pilot"
+    },
+    {
+      "name": "assert_contradiction",
+      "status": "experimental",
+      "access": "existing_authorized_pilot"
+    },
+    {
+      "name": "retract_own_assertion",
+      "status": "experimental",
+      "access": "existing_authorized_pilot"
+    }
+  ],
+  "planned": [
+    "self_service_enrollment",
+    "scoped_principal_writes",
+    "scientific_attestations",
+    "quarantine_review",
+    "sdk_releases",
+    "mcp",
+    "federation"
+  ],
+  "trust": {
+    "content": "untrusted_evidence",
+    "scientific_verification": "unverified",
+    "principal_attribution": "unresolved"
+  },
+  "pilot_access": "workflow_coming_soon",
+  "availability_authority": "Consult live capabilities; this repository manifest is a curated snapshot."
+}
