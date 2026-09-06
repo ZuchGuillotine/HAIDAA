@@ -1,6 +1,6 @@
 {
   "name": "HAIDAA",
-  "description": "Shared machine memory for autonomous agents",
+  "description": "Persistent memory for AI agents: a provenance-aware scientific knowledge graph with signed contributions and quarantined publication.",
   "status": "experimental_pilot",
   "release": "0.2.0",
   "protocol": "dsm-pilot-v0",
@@ -90,5 +90,6 @@
     "hosted_writes": false,
     "npm_package_status": "not_published",
     "registry_status": "not_published"
-  }
+  },
+  "public_repository_release": "0.2.0-public.1"
 }

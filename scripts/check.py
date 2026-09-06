@@ -12,7 +12,8 @@ files = [ROOT / f for f in subprocess.check_output(
 ).decode().splitlines() if (ROOT / f).is_file()]
 allowed_roots = {".github", "docs", "schemas", "examples", "scripts"}
 allowed_files = {"README.md", "LICENSE", "CONTRIBUTING.md", "SECURITY.md",
-                 "GOVERNANCE.md", "ROADMAP.md", "haidaa.json", ".gitignore"}
+                 "GOVERNANCE.md", "ROADMAP.md", "haidaa.json", ".gitignore",
+                 "CITATION.cff", "CHANGELOG.md"}
 for file in files:
     relative = file.relative_to(ROOT)
     if len(relative.parts) == 1:

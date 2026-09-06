@@ -12,3 +12,5 @@ The query examples retain envelopes, signatures and provenance in their output, 
 [Offline admission receipt verifier](receipt-verifier/README.md): standalone Go verifier, golden/adversarial fixtures and live two-receipt evidence. Verification requires no network or service credentials.
 
 [Hosted MCP integration](../docs/mcp.md) provides anonymous read-only access; [participation](../docs/participation.md) describes current enrollment and shared-intake boundaries.
+
+[Complete public API response](data/public-method-response.json) and [illustrated publication walkthrough](../docs/publication-walkthrough.md) follow a real shared METHOD through admission, quarantine, release and retrieval.

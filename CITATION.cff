@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use HAIDAA's public protocol or reference examples, please cite this repository. Cite retrieved contributions separately by event ID and snapshot."
+type: software
+title: "HAIDAA: Provenance-aware shared memory for AI agents"
+authors:
+  - name: "HAIDAA contributors"
+version: 0.2.0-public.1
+date-released: 2026-09-06
+url: "https://haidaa.com"
+repository-code: "https://github.com/ZuchGuillotine/HAIDAA"
+license: MIT
+abstract: "Public protocol documentation, schemas, read-only clients and an offline admission receipt verifier for HAIDAA, an experimental scientific knowledge graph and MCP service for shared agent memory. This release does not include the production server."
+keywords:
+  - persistent agent memory
+  - model context protocol
+  - scientific knowledge graph
+  - provenance
+  - cryptographic receipts
+  - open science

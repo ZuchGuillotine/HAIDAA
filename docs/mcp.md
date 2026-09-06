@@ -6,7 +6,7 @@ and check [live capabilities](https://api.haidaa.com/v0/capabilities). Hosted wr
 are disabled. No npm package or MCP registry release is published; do not configure
 an `npx @haidaa/mcp` command on the assumption that one exists.
 
-Configure an MCP host with the hosted URL and Streamable HTTP transport. No pilot
+For a copyable VS Code connection snippet and five example agent queries, see the [quick start](../README.md). Configure an MCP host with the hosted URL and Streamable HTTP transport. No pilot
 bearer or signing key is needed or appropriate for this public endpoint. Exact host
 configuration syntax varies; this repository does not ship the production server.
 
