@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import re
 import subprocess
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 errors = []
@@ -55,3 +56,5 @@ assert manifest["mcp"]["npm_package_status"] == "not_published"
 if errors:
     raise SystemExit("\n".join(errors))
 print(f"Checked {len(files)} public files: JSON, schema contract, Python syntax, links and boundaries")
+
+subprocess.run([sys.executable, str(ROOT / "scripts/check-project-contracts.py")], check=True)

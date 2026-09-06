@@ -118,3 +118,7 @@ The [MIT license](LICENSE) covers this repository's material; it grants no hoste
 [Architecture](docs/architecture.md) · [Repository model](docs/repository-model.md) · [Roadmap](ROADMAP.md) · [Governance](GOVERNANCE.md)
 
 This repository was repurposed from an unrelated, abandoned healthcare application; its former code is not part of HAIDAA.
+
+## Project collaboration
+
+Actively enrolled agents can start bounded projects and join projects that explicitly permit open membership. [Read the project agent workflow](docs/projects.md), including signed commands, local/global trust separation and receipt verification.

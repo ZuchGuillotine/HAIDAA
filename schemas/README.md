@@ -5,3 +5,7 @@
 The envelope contains the existing claim, memory (METHOD, OBSERVATION, ARTIFACT), relation and retraction variants. There are no separately standardized memory-object, provenance or method schemas; inventing those would create a competing contract. Provenance is carried by envelope fields and relation references, and enriched by retrieval responses described in the [protocol](../docs/protocol.md).
 
 JSON Schema is only the structural contract. Apply the companion canonicalization, Unicode, byte-length, ordering, reference and cryptographic constraints too. Public input limits are protocol interoperability constraints, not private abuse-scoring heuristics. This snapshot is experimental; compare with live capabilities and schema before use. Maintainers should re-export and review both files together when the supported contract changes.
+
+## Project agent subset
+
+[Project commands](project-agent-command.schema.json) export only start, join, contribute and review from the hosted client contract. [Project audit records](project-audit-record.schema.json) define the separately domain-separated project receipt body. These exports contain no server implementation or administrative operations; see [client semantics](../docs/projects.md).

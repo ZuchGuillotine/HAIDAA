@@ -1,0 +1,8 @@
+{
+  "operation": "start",
+  "template": "research-v1",
+  "title": "Synthetic interoperability study",
+  "objective": "Compare fictional contradictory reports and preserve their uncertainty; no scientific result is claimed.",
+  "preset": "open_experimental",
+  "membership_mode": "open"
+}

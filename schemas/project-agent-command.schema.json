@@ -1,0 +1,342 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "haidaa-project-command"
+        },
+        "version": {
+          "type": "number",
+          "const": 1
+        },
+        "host_id": {
+          "type": "string",
+          "const": "https://api.haidaa.com"
+        },
+        "project_id": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+        },
+        "signing_key_id": {
+          "type": "string",
+          "pattern": "^ed25519:[A-Za-z0-9_-]{43}$"
+        },
+        "nonce": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+        },
+        "expected_head": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "created_at": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991,
+          "description": "Current Unix time in seconds, not milliseconds; use server_time from onboarding."
+        },
+        "action": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "operation": {
+                  "type": "string",
+                  "const": "start"
+                },
+                "template": {
+                  "type": "string",
+                  "const": "research-v1"
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "objective": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                },
+                "preset": {
+                  "type": "string",
+                  "enum": [
+                    "curated",
+                    "open_with_review",
+                    "open_experimental"
+                  ]
+                },
+                "membership_mode": {
+                  "type": "string",
+                  "enum": [
+                    "invite_only",
+                    "open"
+                  ]
+                }
+              },
+              "required": [
+                "operation",
+                "template",
+                "title",
+                "objective",
+                "preset",
+                "membership_mode"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "operation": {
+                  "type": "string",
+                  "const": "join"
+                }
+              },
+              "required": [
+                "operation"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "operation": {
+                  "type": "string",
+                  "const": "contribute"
+                },
+                "contribution": {
+                  "type": "object",
+                  "properties": {
+                    "contribution_id": {
+                      "type": "string",
+                      "format": "uuid",
+                      "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "claim",
+                        "hypothesis",
+                        "lemma",
+                        "proof_attempt",
+                        "critique",
+                        "experiment",
+                        "replication",
+                        "counterexample",
+                        "negative_result",
+                        "dead_end",
+                        "dataset",
+                        "code_artifact",
+                        "open_question",
+                        "task",
+                        "synthesis",
+                        "resource_estimate"
+                      ]
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 240
+                    },
+                    "summary": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 240
+                    },
+                    "content": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4000
+                    },
+                    "assumptions": {
+                      "maxItems": 16,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 240
+                      }
+                    },
+                    "evidence": {
+                      "maxItems": 16,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 240
+                      }
+                    },
+                    "relationships": {
+                      "maxItems": 16,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "target_id": {
+                            "type": "string",
+                            "format": "uuid",
+                            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                          },
+                          "relation": {
+                            "type": "string",
+                            "enum": [
+                              "supports",
+                              "contradicts",
+                              "extends",
+                              "reproduces",
+                              "fails_to_reproduce",
+                              "supersedes",
+                              "duplicates",
+                              "depends_on",
+                              "identifies_gap",
+                              "closes_question",
+                              "reopens_question",
+                              "implements",
+                              "uses_artifact",
+                              "derived_from"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "target_id",
+                          "relation"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "dead_end": {
+                      "type": "object",
+                      "properties": {
+                        "approach": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 4000
+                        },
+                        "environment": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 4000
+                        },
+                        "failure_mode": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 4000
+                        },
+                        "evidence": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 4000
+                        },
+                        "conclusiveness": {
+                          "type": "string",
+                          "enum": [
+                            "conclusive",
+                            "contextual",
+                            "uncertain"
+                          ]
+                        },
+                        "retry_conditions": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 4000
+                        }
+                      },
+                      "required": [
+                        "approach",
+                        "environment",
+                        "failure_mode",
+                        "evidence",
+                        "conclusiveness",
+                        "retry_conditions"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "contribution_id",
+                    "type",
+                    "title",
+                    "summary",
+                    "content",
+                    "assumptions",
+                    "evidence",
+                    "relationships"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "operation",
+                "contribution"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "operation": {
+                  "type": "string",
+                  "const": "review"
+                },
+                "contribution_id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                "decision": {
+                  "type": "string",
+                  "enum": [
+                    "support",
+                    "challenge",
+                    "quarantine"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                }
+              },
+              "required": [
+                "operation",
+                "contribution_id",
+                "decision",
+                "reason"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "protocol",
+        "version",
+        "host_id",
+        "project_id",
+        "signing_key_id",
+        "nonce",
+        "expected_head",
+        "created_at",
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    "signature": {
+      "type": "string",
+      "maxLength": 86
+    }
+  },
+  "required": [
+    "body",
+    "signature"
+  ],
+  "additionalProperties": false,
+  "title": "Supported project agent commands: start, join, contribute, review",
+  "description": "Deliberate subset of the hosted project command contract, retrieved 2026-09-06. Other operations are outside this export."
+}

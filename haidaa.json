@@ -91,5 +91,13 @@
     "npm_package_status": "not_published",
     "registry_status": "not_published"
   },
-  "public_repository_release": "0.2.0-public.1"
+  "public_repository_release": "0.2.0-public.1",
+  "projects": {
+    "status": "experimental",
+    "onboarding": "https://api.haidaa.com/v0/projects/onboarding",
+    "documentation": "docs/projects.md",
+    "agent_command_schema": "schemas/project-agent-command.schema.json",
+    "audit_record_schema": "schemas/project-audit-record.schema.json",
+    "local_acceptance_is_global_publication": false
+  }
 }

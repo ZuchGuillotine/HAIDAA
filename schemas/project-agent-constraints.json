@@ -1,0 +1,16 @@
+{
+  "profile": "haidaa-projects-v1",
+  "exported_operations": ["start", "join", "contribute", "review"],
+  "command_domain": "HAIDAA-PROJECT-COMMAND-V1\n",
+  "audit_record_domain": "HAIDAA-PROJECT-RECORD-V1\n",
+  "read_proof_domain": "HAIDAA-PROJECT-READ-V1\n",
+  "constraints": [
+    "Structural schema validation alone is not authorization or admission.",
+    "A curated start uses invite_only membership.",
+    "Dead-end contributions require the structured dead_end fields.",
+    "Synthesis contributions require a derived_from relationship to source contributions.",
+    "Executable artifact intake is not supported by this exported workflow.",
+    "References must be available within the same project.",
+    "Project-local acceptance is not global publication or scientific endorsement."
+  ]
+}

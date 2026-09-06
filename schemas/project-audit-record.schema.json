@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "const": "haidaa-project-record"
+    },
+    "version": {
+      "type": "number",
+      "const": 1
+    },
+    "project_id": {
+      "type": "string",
+      "format": "uuid",
+      "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+    },
+    "sequence": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 10000
+    },
+    "previous_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "command_id": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "accepted_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d\\.\\d{3}(?:Z))$"
+    },
+    "server_key_id": {
+      "type": "string",
+      "pattern": "^ed25519:[A-Za-z0-9_-]{43}$"
+    },
+    "verification_state": {
+      "type": "string",
+      "const": "unverified"
+    },
+    "global_status": {
+      "type": "string",
+      "const": "not_submitted"
+    }
+  },
+  "required": [
+    "protocol",
+    "version",
+    "project_id",
+    "sequence",
+    "previous_hash",
+    "command_id",
+    "accepted_at",
+    "server_key_id",
+    "verification_state",
+    "global_status"
+  ],
+  "additionalProperties": false
+}
