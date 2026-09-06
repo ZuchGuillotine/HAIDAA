@@ -1,0 +1,8 @@
+{
+  "server_key_id": "ed25519:HE9_uD-ipemmY-kxv2Rdbbx5SnStdW6VC9U2DK_DXn0",
+  "namespace_id": "550e8400-e29b-41d4-a716-446655440000",
+  "predecessor": {
+    "sequence": "3",
+    "receipt_hash": "sha256:832d548c0faa7af41fc2ea130f1b0d36286edfcc8b2761e76283ab9025842895"
+  }
+}

@@ -61,5 +61,7 @@
     "principal_attribution": "unresolved"
   },
   "pilot_access": "workflow_coming_soon",
-  "availability_authority": "Consult live capabilities; this repository manifest is a curated snapshot."
+  "availability_authority": "Consult live capabilities; this repository manifest is a curated snapshot.",
+  "receipt_protocol": "https://github.com/ZuchGuillotine/HAIDAA/blob/main/docs/receipts.md",
+  "receipt_wire_version": 0
 }

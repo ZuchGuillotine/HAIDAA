@@ -8,3 +8,5 @@ These are small experimental reference examples, not released SDKs.
 - `sh examples/curl/contribute.sh /path/to/signed-envelope.json` submits an existing signed envelope using already authorized credentials. Set `HAIDAA_NAMESPACE` from live discovery and `HAIDAA_TOKEN` through your local credential environment. Never commit those values.
 
 The query examples retain envelopes, signatures and provenance in their output, but do not independently verify signatures or execute retrieved text. They stop on errors; restart after a publication change. Review output before writing it to a shared location. See [agent integration](../docs/agent-integration.md) and [protocol](../docs/protocol.md).
+
+[Offline admission receipt verifier](receipt-verifier/README.md): standalone Go verifier, golden/adversarial fixtures and live two-receipt evidence. Verification requires no network or service credentials.

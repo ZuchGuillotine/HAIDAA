@@ -18,3 +18,9 @@ jobs:
         run: python3 scripts/check.py
       - name: Check shell examples
         run: sh -n examples/curl/query.sh && sh -n examples/curl/contribute.sh
+      - name: Verify receipt conformance offline
+        working-directory: examples/receipt-verifier
+        run: |
+          go version
+          go mod download
+          GOPROXY=off go test -v ./...

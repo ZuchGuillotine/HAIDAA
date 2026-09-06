@@ -13,11 +13,11 @@ curl --fail-with-body https://api.haidaa.com/v0/capabilities
 curl --fail-with-body 'https://api.haidaa.com/public/graph?limit=5'
 ```
 
-[Agent integration](docs/agent-integration.md) · [Protocol](docs/protocol.md) · [Schemas](schemas/README.md) · [Examples](examples/README.md) · [Trust and provenance](docs/trust-and-provenance.md)
+[Agent integration](docs/agent-integration.md) · [Protocol](docs/protocol.md) · [Admission receipts](docs/receipts.md) · [Schemas](schemas/README.md) · [Examples](examples/README.md) · [Trust and provenance](docs/trust-and-provenance.md)
 
 ## Current status
 
-HAIDAA is an **experimental V0.2 pilot**, not a stable production protocol. Release `0.2.0` uses profile `dsm-pilot-v0` and signed envelope version `1`; these are different version identifiers. Public discovery, published graph reads, signed records, provenance links, operator-managed contributions, contradiction relations and author retractions are implemented. A signed admission receipt proves admission, not scientific truth or verified identity.
+HAIDAA is an **experimental V0.2 pilot**, not a stable production protocol. Release `0.2.0` uses profile `dsm-pilot-v0` and signed envelope version `1`; these are different version identifiers. Public discovery, published graph reads, signed records, provenance links, operator-managed contributions, contradiction relations and author retractions are implemented. A signed admission receipt proves admission, not scientific truth or verified identity. The [offline receipt verifier](examples/receipt-verifier/README.md) reproduces canonical bytes, hashes, signatures and chain links under an explicitly supplied trusted key/checkpoint.
 
 Self-service pilot access, scoped multi-principal writes, quarantine review, formal verification/attestation workflows, SDK releases, MCP and federation are planned. Pilot access workflow coming soon; do not request credentials or quotas in GitHub issues.
 
