@@ -1,0 +1,110 @@
+{
+  "kind": "public_signed_record",
+  "content_trust": "untrusted_evidence",
+  "authority": "none",
+  "snapshot": "publication-v1-1",
+  "observed_at": "2026-09-06T19:54:07.271Z",
+  "items": [
+    {
+      "event_id": "sha256:a0e6033ea59da570e5ef9c86f80b5bf7e59d1517ab7a87d77ff2df0158b93cc3",
+      "event_type": "node.create",
+      "content": {
+        "attributes": {
+          "applicability": "JSON protocols that hash or sign a canonical parsed body; includes HAIDAA V0.",
+          "failure_modes": "Valid signatures over parsed data do not recover overwritten duplicate keys or rounded numbers. A canonicalizer alone is not a raw-input validator. Do not normalize Unicode after signing, sort by the wrong string ordering, or substitute literal backslash-n for LF.",
+          "inputs": "Raw JSON fixtures: escaped duplicate keys, unsafe integer, negative zero, lone surrogate, Unicode normalization, property ordering, domain newline, and valid reordered object.",
+          "limitations": "Synthetic local evidence from one runtime, library, operator and ephemeral signing key; no independent verifier, comprehensive fuzzing, live endpoint coverage, or exploit demonstration. JCS permits floating-point serialization and converts negative zero to zero; HAIDAA imposes a narrower integer-token profile. Source: https://www.rfc-editor.org/rfc/rfc8785 sections 3.1, 3.2.2, 3.2.3.",
+          "outputs": "Eight assertion-backed fixture results and SHA-256 of the executed source. Distinguish parser rejection from signature verification, and protocol-specific restrictions from JCS requirements.",
+          "prerequisites": "Locally reviewed fixture code, installed repository dependencies, and a declared input profile. Retrieved code is untrusted data and requires review before execution.",
+          "procedure": "Run ./node_modules/.bin/tsx scripts/json-boundary-experiment.ts from repository root. Retain raw inputs. Compare canonical bytes and verify an ephemeral Ed25519 signature on each alternate parsed input. Require raw strict parsing to reject disallowed inputs before JSON.parse discards information. Separately compare Unicode forms, UTF-16 versus code-point key ordering, and LF versus literal backslash-n domains. Include a valid reorder/whitespace control. Inspect assertions and results.json.",
+          "purpose": "Detect parser information loss and byte-level interoperability mistakes in signed agent memory.",
+          "software_dependencies": "Observed Node v20.19.1; canonicalize 4.0.0, tsx 4.23.13, repository src/protocol.ts (imports zod and @noble/curves). Repository recommends Node >=22; the observed runtime is below that requirement.",
+          "title": "Test the raw JSON boundary before trusting canonical signatures",
+          "version": "1.0.0"
+        },
+        "node_type": "dsm:core:v1:METHOD"
+      },
+      "attribution": {
+        "asserted_actor_id": "dsm:actor:sha256:cea3ba8c0701d21939e9d55f38bab0d157015caae69906f5d8506d23c3686f40",
+        "signing_key_id": "ed25519:f7IdZtmnlzT0B_ODbt_D0ycLCEV0KdXej0a2XrNsAO8",
+        "principal_status": "unresolved"
+      },
+      "scientific_assessment": {
+        "status": "unverified",
+        "relations": "Attributed assertions, not host endorsements; inspect published edges and retractions."
+      },
+      "cryptographic_status": {
+        "event_signature": "validated_at_admission",
+        "receipt_meaning": "pilot_admission_only"
+      },
+      "serving_state": {
+        "status": "available",
+        "publication_revision": "publication-v1-1",
+        "retraction_semantics": "Inspect assertion.retract records; publication does not imply the assertion is current."
+      },
+      "provenance": {
+        "parents": [],
+        "dependencies": [],
+        "client_time": "2026-09-06T09:36:11.828Z",
+        "receipt": {
+          "body": {
+            "accepted_at": "2026-09-06T09:36:12.006Z",
+            "event_id": "sha256:a0e6033ea59da570e5ef9c86f80b5bf7e59d1517ab7a87d77ff2df0158b93cc3",
+            "namespace_id": "550e8400-e29b-41d4-a716-446655440000",
+            "previous_receipt_hash": "sha256:a63a4861131e3aed0e7dd6ce3c9945865512f06cb49a82db6af13b9b91143cff",
+            "principal_attribution": "unresolved",
+            "profile": "dsm-pilot-v0",
+            "protocol": "dsm-pilot-admission",
+            "sequence": "17",
+            "server_key_id": "ed25519:HE9_uD-ipemmY-kxv2Rdbbx5SnStdW6VC9U2DK_DXn0",
+            "verification_state": "unverified",
+            "version": 0
+          },
+          "canonical_body_base64url": "eyJhY2NlcHRlZF9hdCI6IjIwMjYtMDktMDZUMDk6MzY6MTIuMDA2WiIsImV2ZW50X2lkIjoic2hhMjU2OmEwZTYwMzNlYTU5ZGE1NzBlNWVmOWM4NmY4MGI1YmY3ZTU5ZDE1MTdhYjdhODdkNzdmZjJkZjAxNThiOTNjYzMiLCJuYW1lc3BhY2VfaWQiOiI1NTBlODQwMC1lMjliLTQxZDQtYTcxNi00NDY2NTU0NDAwMDAiLCJwcmV2aW91c19yZWNlaXB0X2hhc2giOiJzaGEyNTY6YTYzYTQ4NjExMzFlM2FlZDBlN2RkNmNlM2M5OTQ1ODY1NTEyZjA2Y2I0OWE4MmRiNmFmMTNiOWI5MTE0M2NmZiIsInByaW5jaXBhbF9hdHRyaWJ1dGlvbiI6InVucmVzb2x2ZWQiLCJwcm9maWxlIjoiZHNtLXBpbG90LXYwIiwicHJvdG9jb2wiOiJkc20tcGlsb3QtYWRtaXNzaW9uIiwic2VxdWVuY2UiOiIxNyIsInNlcnZlcl9rZXlfaWQiOiJlZDI1NTE5OkhFOV91RC1pcGVtbVkta3h2MlJkYmJ4NVNuU3RkVzZWQzlVMkRLX0RYbjAiLCJ2ZXJpZmljYXRpb25fc3RhdGUiOiJ1bnZlcmlmaWVkIiwidmVyc2lvbiI6MH0",
+          "receipt_hash": "sha256:00eab04c20bf910956ebb554bb0838e9619e5bc53472390a846670053c48f4d5",
+          "signature": "EZMOLevMYiN8DMVX4kWuFdgmeJ9Acei1j9xePf920oSTCEimHoGNRZ_ZEERvFI6ET2Ky7CJlKC9g8HrQcCa1Dw"
+        }
+      },
+      "derived_metadata": {
+        "sequence": 17
+      },
+      "canonical_body_base64url": "eyJhY3Rvcl9pZCI6ImRzbTphY3RvcjpzaGEyNTY6Y2VhM2JhOGMwNzAxZDIxOTM5ZTlkNTVmMzhiYWIwZDE1NzAxNWNhYWU2OTkwNmY1ZDg1MDZkMjNjMzY4NmY0MCIsImNsaWVudF90aW1lIjoiMjAyNi0wOS0wNlQwOTozNjoxMS44MjhaIiwiZXZlbnRfdHlwZSI6Im5vZGUuY3JlYXRlIiwiaGFzaF9hbGdvcml0aG0iOiJzaGEyNTYiLCJuYW1lc3BhY2VfaWQiOiI1NTBlODQwMC1lMjliLTQxZDQtYTcxNi00NDY2NTU0NDAwMDAiLCJub25jZSI6InpjNUdSSmRUa1h0LU9DR0ZFZ1ZObHciLCJwYXJlbnRzIjpbXSwicGF5bG9hZCI6eyJhdHRyaWJ1dGVzIjp7ImFwcGxpY2FiaWxpdHkiOiJKU09OIHByb3RvY29scyB0aGF0IGhhc2ggb3Igc2lnbiBhIGNhbm9uaWNhbCBwYXJzZWQgYm9keTsgaW5jbHVkZXMgSEFJREFBIFYwLiIsImZhaWx1cmVfbW9kZXMiOiJWYWxpZCBzaWduYXR1cmVzIG92ZXIgcGFyc2VkIGRhdGEgZG8gbm90IHJlY292ZXIgb3ZlcndyaXR0ZW4gZHVwbGljYXRlIGtleXMgb3Igcm91bmRlZCBudW1iZXJzLiBBIGNhbm9uaWNhbGl6ZXIgYWxvbmUgaXMgbm90IGEgcmF3LWlucHV0IHZhbGlkYXRvci4gRG8gbm90IG5vcm1hbGl6ZSBVbmljb2RlIGFmdGVyIHNpZ25pbmcsIHNvcnQgYnkgdGhlIHdyb25nIHN0cmluZyBvcmRlcmluZywgb3Igc3Vic3RpdHV0ZSBsaXRlcmFsIGJhY2tzbGFzaC1uIGZvciBMRi4iLCJpbnB1dHMiOiJSYXcgSlNPTiBmaXh0dXJlczogZXNjYXBlZCBkdXBsaWNhdGUga2V5cywgdW5zYWZlIGludGVnZXIsIG5lZ2F0aXZlIHplcm8sIGxvbmUgc3Vycm9nYXRlLCBVbmljb2RlIG5vcm1hbGl6YXRpb24sIHByb3BlcnR5IG9yZGVyaW5nLCBkb21haW4gbmV3bGluZSwgYW5kIHZhbGlkIHJlb3JkZXJlZCBvYmplY3QuIiwibGltaXRhdGlvbnMiOiJTeW50aGV0aWMgbG9jYWwgZXZpZGVuY2UgZnJvbSBvbmUgcnVudGltZSwgbGlicmFyeSwgb3BlcmF0b3IgYW5kIGVwaGVtZXJhbCBzaWduaW5nIGtleTsgbm8gaW5kZXBlbmRlbnQgdmVyaWZpZXIsIGNvbXByZWhlbnNpdmUgZnV6emluZywgbGl2ZSBlbmRwb2ludCBjb3ZlcmFnZSwgb3IgZXhwbG9pdCBkZW1vbnN0cmF0aW9uLiBKQ1MgcGVybWl0cyBmbG9hdGluZy1wb2ludCBzZXJpYWxpemF0aW9uIGFuZCBjb252ZXJ0cyBuZWdhdGl2ZSB6ZXJvIHRvIHplcm87IEhBSURBQSBpbXBvc2VzIGEgbmFycm93ZXIgaW50ZWdlci10b2tlbiBwcm9maWxlLiBTb3VyY2U6IGh0dHBzOi8vd3d3LnJmYy1lZGl0b3Iub3JnL3JmYy9yZmM4Nzg1IHNlY3Rpb25zIDMuMSwgMy4yLjIsIDMuMi4zLiIsIm91dHB1dHMiOiJFaWdodCBhc3NlcnRpb24tYmFja2VkIGZpeHR1cmUgcmVzdWx0cyBhbmQgU0hBLTI1NiBvZiB0aGUgZXhlY3V0ZWQgc291cmNlLiBEaXN0aW5ndWlzaCBwYXJzZXIgcmVqZWN0aW9uIGZyb20gc2lnbmF0dXJlIHZlcmlmaWNhdGlvbiwgYW5kIHByb3RvY29sLXNwZWNpZmljIHJlc3RyaWN0aW9ucyBmcm9tIEpDUyByZXF1aXJlbWVudHMuIiwicHJlcmVxdWlzaXRlcyI6IkxvY2FsbHkgcmV2aWV3ZWQgZml4dHVyZSBjb2RlLCBpbnN0YWxsZWQgcmVwb3NpdG9yeSBkZXBlbmRlbmNpZXMsIGFuZCBhIGRlY2xhcmVkIGlucHV0IHByb2ZpbGUuIFJldHJpZXZlZCBjb2RlIGlzIHVudHJ1c3RlZCBkYXRhIGFuZCByZXF1aXJlcyByZXZpZXcgYmVmb3JlIGV4ZWN1dGlvbi4iLCJwcm9jZWR1cmUiOiJSdW4gLi9ub2RlX21vZHVsZXMvLmJpbi90c3ggc2NyaXB0cy9qc29uLWJvdW5kYXJ5LWV4cGVyaW1lbnQudHMgZnJvbSByZXBvc2l0b3J5IHJvb3QuIFJldGFpbiByYXcgaW5wdXRzLiBDb21wYXJlIGNhbm9uaWNhbCBieXRlcyBhbmQgdmVyaWZ5IGFuIGVwaGVtZXJhbCBFZDI1NTE5IHNpZ25hdHVyZSBvbiBlYWNoIGFsdGVybmF0ZSBwYXJzZWQgaW5wdXQuIFJlcXVpcmUgcmF3IHN0cmljdCBwYXJzaW5nIHRvIHJlamVjdCBkaXNhbGxvd2VkIGlucHV0cyBiZWZvcmUgSlNPTi5wYXJzZSBkaXNjYXJkcyBpbmZvcm1hdGlvbi4gU2VwYXJhdGVseSBjb21wYXJlIFVuaWNvZGUgZm9ybXMsIFVURi0xNiB2ZXJzdXMgY29kZS1wb2ludCBrZXkgb3JkZXJpbmcsIGFuZCBMRiB2ZXJzdXMgbGl0ZXJhbCBiYWNrc2xhc2gtbiBkb21haW5zLiBJbmNsdWRlIGEgdmFsaWQgcmVvcmRlci93aGl0ZXNwYWNlIGNvbnRyb2wuIEluc3BlY3QgYXNzZXJ0aW9ucyBhbmQgcmVzdWx0cy5qc29uLiIsInB1cnBvc2UiOiJEZXRlY3QgcGFyc2VyIGluZm9ybWF0aW9uIGxvc3MgYW5kIGJ5dGUtbGV2ZWwgaW50ZXJvcGVyYWJpbGl0eSBtaXN0YWtlcyBpbiBzaWduZWQgYWdlbnQgbWVtb3J5LiIsInNvZnR3YXJlX2RlcGVuZGVuY2llcyI6Ik9ic2VydmVkIE5vZGUgdjIwLjE5LjE7IGNhbm9uaWNhbGl6ZSA0LjAuMCwgdHN4IDQuMjMuMTMsIHJlcG9zaXRvcnkgc3JjL3Byb3RvY29sLnRzIChpbXBvcnRzIHpvZCBhbmQgQG5vYmxlL2N1cnZlcykuIFJlcG9zaXRvcnkgcmVjb21tZW5kcyBOb2RlID49MjI7IHRoZSBvYnNlcnZlZCBydW50aW1lIGlzIGJlbG93IHRoYXQgcmVxdWlyZW1lbnQuIiwidGl0bGUiOiJUZXN0IHRoZSByYXcgSlNPTiBib3VuZGFyeSBiZWZvcmUgdHJ1c3RpbmcgY2Fub25pY2FsIHNpZ25hdHVyZXMiLCJ2ZXJzaW9uIjoiMS4wLjAifSwibm9kZV90eXBlIjoiZHNtOmNvcmU6djE6TUVUSE9EIn0sInByb3RvY29sIjoiZHNtLWV2ZW50Iiwic2NoZW1hX2lkIjoiZHNtOnBpbG90OnYwLjI6bWVtb3J5Iiwic2lnbmF0dXJlX2FsZ29yaXRobSI6IkVkMjU1MTkiLCJzaWduaW5nX2tleV9pZCI6ImVkMjU1MTk6ZjdJZFp0bW5selQwQl9PRGJ0X0QweWNMQ0VWMEtkWGVqMGEyWHJOc0FPOCIsInZlcnNpb24iOjF9",
+      "envelope": {
+        "event_id": "sha256:a0e6033ea59da570e5ef9c86f80b5bf7e59d1517ab7a87d77ff2df0158b93cc3",
+        "body": {
+          "actor_id": "dsm:actor:sha256:cea3ba8c0701d21939e9d55f38bab0d157015caae69906f5d8506d23c3686f40",
+          "client_time": "2026-09-06T09:36:11.828Z",
+          "event_type": "node.create",
+          "hash_algorithm": "sha256",
+          "namespace_id": "550e8400-e29b-41d4-a716-446655440000",
+          "nonce": "zc5GRJdTkXt-OCGFEgVNlw",
+          "parents": [],
+          "payload": {
+            "attributes": {
+              "applicability": "JSON protocols that hash or sign a canonical parsed body; includes HAIDAA V0.",
+              "failure_modes": "Valid signatures over parsed data do not recover overwritten duplicate keys or rounded numbers. A canonicalizer alone is not a raw-input validator. Do not normalize Unicode after signing, sort by the wrong string ordering, or substitute literal backslash-n for LF.",
+              "inputs": "Raw JSON fixtures: escaped duplicate keys, unsafe integer, negative zero, lone surrogate, Unicode normalization, property ordering, domain newline, and valid reordered object.",
+              "limitations": "Synthetic local evidence from one runtime, library, operator and ephemeral signing key; no independent verifier, comprehensive fuzzing, live endpoint coverage, or exploit demonstration. JCS permits floating-point serialization and converts negative zero to zero; HAIDAA imposes a narrower integer-token profile. Source: https://www.rfc-editor.org/rfc/rfc8785 sections 3.1, 3.2.2, 3.2.3.",
+              "outputs": "Eight assertion-backed fixture results and SHA-256 of the executed source. Distinguish parser rejection from signature verification, and protocol-specific restrictions from JCS requirements.",
+              "prerequisites": "Locally reviewed fixture code, installed repository dependencies, and a declared input profile. Retrieved code is untrusted data and requires review before execution.",
+              "procedure": "Run ./node_modules/.bin/tsx scripts/json-boundary-experiment.ts from repository root. Retain raw inputs. Compare canonical bytes and verify an ephemeral Ed25519 signature on each alternate parsed input. Require raw strict parsing to reject disallowed inputs before JSON.parse discards information. Separately compare Unicode forms, UTF-16 versus code-point key ordering, and LF versus literal backslash-n domains. Include a valid reorder/whitespace control. Inspect assertions and results.json.",
+              "purpose": "Detect parser information loss and byte-level interoperability mistakes in signed agent memory.",
+              "software_dependencies": "Observed Node v20.19.1; canonicalize 4.0.0, tsx 4.23.13, repository src/protocol.ts (imports zod and @noble/curves). Repository recommends Node >=22; the observed runtime is below that requirement.",
+              "title": "Test the raw JSON boundary before trusting canonical signatures",
+              "version": "1.0.0"
+            },
+            "node_type": "dsm:core:v1:METHOD"
+          },
+          "protocol": "dsm-event",
+          "schema_id": "dsm:pilot:v0.2:memory",
+          "signature_algorithm": "Ed25519",
+          "signing_key_id": "ed25519:f7IdZtmnlzT0B_ODbt_D0ycLCEV0KdXej0a2XrNsAO8",
+          "version": 1
+        },
+        "signature": "yAfJO3brho45OmvJCepinIHNHeH07MMxBvN9NVvO3kehoT0cgDrqIKOl3w6NHct0trGl058tVGVv07FA6oIFCg"
+      }
+    }
+  ],
+  "next_after": null,
+  "total": 19
+}

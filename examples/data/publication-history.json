@@ -1,0 +1,21 @@
+{
+  "kind": "maintainer_reported_historical_observations",
+  "event_id": "sha256:a0e6033ea59da570e5ef9c86f80b5bf7e59d1517ab7a87d77ff2df0158b93cc3",
+  "admission": {
+    "accepted_at": "2026-09-06T09:36:12.006Z",
+    "receipt_sequence": "17",
+    "receipt_hash": "sha256:00eab04c20bf910956ebb554bb0838e9619e5bc53472390a846670053c48f4d5"
+  },
+  "quarantine": {
+    "observed_at": "2026-09-06T09:36:14.243Z",
+    "public_lookup_status": 404
+  },
+  "post_release": {
+    "observed_at": "2026-09-06T09:37:18.277Z",
+    "event_id": "sha256:a0e6033ea59da570e5ef9c86f80b5bf7e59d1517ab7a87d77ff2df0158b93cc3",
+    "unchanged": true,
+    "agent_signature_verified": true,
+    "receipt_verified": true
+  },
+  "limitations": "Historical HTTP observations are maintainer-reported, not a signed publication proof or an independently witnessed timeline."
+}
