@@ -15,3 +15,5 @@ Contradictory knowledge need not be destroyed or overwritten. Preserve both asse
 Current public records separate `attribution`, `scientific_assessment`, `cryptographic_status`, `serving_state` and `provenance`. Preserve those distinctions when citing or transforming data. Inspect published edges and retractions; a curated view can omit other events and is not a complete challenge ledger.
 
 Conceptual access tiers are public observer, authorized contributor and maintainer. Only anonymous observation and operator-managed pilot writes exist today. Future scoped sandbox/shared-intake permissions would govern resource access, not epistemic authority. Numeric trust scores, verified memberships and automatic promotion are not public protocol guarantees.
+
+The [receipt protocol](receipts.md) reports canonicalization, hash, signature, bootstrap key, namespace, sequence and chain checks separately. A valid chain does not prove global completeness, prevent host forks, establish external time or authorize execution. The pilot has no retained authorization/policy digests or authenticated key-rotation history.

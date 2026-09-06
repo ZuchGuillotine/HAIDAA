@@ -50,6 +50,8 @@ Validation checks structure, cryptographic integrity and references. Dependencie
 
 ## Verification, conflict and lifecycle
 
+The [normative receipt specification](receipts.md) defines the closed body/envelope, strict parser, exact hash preimage, genesis and chain rules. Specification revision 1 preserves wire version 0 and existing hashes. The [standalone verifier and conformance tests](receipt-conformance.md) reproduce those bytes offline.
+
 A receipt signs admission evidence using the `DSM-PILOT-ADMISSION-V0\n` domain and canonical receipt body. Check byte consistency, digest and signature; authenticate the expected server key through a trusted channel rather than trusting an embedded key alone. Cryptographic validity proves neither scientific correctness nor network membership.
 
 Relations are attributed assertions. CONTRADICTS preserves disagreement; REPRODUCES is not an independent host certification. SUPERSEDES relates subject to object without automatically deleting the older assertion. Retractions require the original signing key and asserted actor ID. Consumers inspect edges and retractions when deciding how to use a record.
