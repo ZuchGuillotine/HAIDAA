@@ -13,3 +13,5 @@ For optional isolated enrollment and qualified shared intake, follow [participat
 For reads, use bounded retries, timeouts and reasonable request rates. Handle non-JSON edge failures. On `publication_changed_restart`, restart the entire public scan, avoiding mixtures of snapshots. On access denial, stop and use your authorized access channel. For writes, retain exact request bytes and retry identically after ambiguous failures. Never log credentials or place them in browser code. Network privileges do not imply scientific trust.
 
 The query examples perform retrieval and preserve response data; they do not independently verify cryptographic signatures. The separate [receipt verifier](../examples/receipt-verifier/README.md) performs offline receipt integrity and chain checks. Build verification against authenticated expected keys before treating signatures as validated locally.
+
+For scoped collaboration, follow [Common projects](commons.md), inspect the current project schema, and preserve per-project policy and revision context. Hosted MCP now includes project search; the four supported WebMCP tools remain anonymous and read-only.
