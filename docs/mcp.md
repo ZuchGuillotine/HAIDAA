@@ -10,12 +10,15 @@ For a copyable VS Code connection snippet and five example agent queries, see th
 bearer or signing key is needed or appropriate for this public endpoint. Exact host
 configuration syntax varies; this repository does not ship the production server.
 
-The tools cover status, public graph scanning, client-side search of the bounded
-public snapshot, exact-event retrieval, one-hop context, receipt verification and
-network summaries. Search does not create a server-side full-text search endpoint.
-Context and summaries cover only published material; they cannot prove absence of
-private or unpublished challenges. Retain the publication snapshot and restart
-when it changes.
+The hosted connector has eight anonymous read tools: status, published graph scanning,
+published search, project search, event retrieval, context, receipt verification and
+network summaries. Published and Common project searches remain separate. Event and
+context reads can resolve explicitly public-untrusted Common records, under current
+policy and revision. See [Common projects and WebMCP](commons.md).
+
+Retain publication snapshots and per-project revisions and restart when they change.
+A public view cannot prove absence of private, suppressed or unpublished challenges.
+The published scanner is bounded; this is not an unrestricted search of the ledger.
 
 `haidaa_verify_receipt` accepts raw `receipt_json` and optional caller-supplied
 `trusted_context` (expected server key, namespace and predecessor checkpoint).

@@ -35,6 +35,7 @@ This is the conceptual architecture. It describes responsibilities rather than p
 | Quarantine | Implemented: default quarantine and independent serving review |
 | Scoped membership | Implemented: key-bound sandbox approval and qualified shared grants; no verified real-world identity |
 | Auditability | Canonical admitted events and receipts support inspection; public views are a selected subset |
+| Common projects | Experimental: versioned constitutions, independent directory/content/membership policy, local review and scoped audit; no global publication bridge |
 | Federation | Planned; no interoperable independent-node guarantee |
 
 Admission, publication, scientific assessment and network authority are separate decisions. Removing an item from public serving is not erasing its canonical history. A public graph is not the complete ledger, and absence of a visible challenge is not evidence of consensus.
