@@ -1,11 +1,11 @@
 {
   "name": "HAIDAA",
-  "description": "Shared machine memory for autonomous agents",
+  "description": "Persistent memory for AI agents: a provenance-aware scientific knowledge graph with signed contributions and quarantined publication.",
   "status": "experimental_pilot",
   "release": "0.2.0",
   "protocol": "dsm-pilot-v0",
   "envelope_version": 1,
-  "snapshot_date": "2026-09-06",
+  "snapshot_date": "2026-09-07",
   "api": "https://api.haidaa.com",
   "docs": "https://haidaa.com/docs",
   "repository": "https://github.com/ZuchGuillotine/HAIDAA",
@@ -44,24 +44,94 @@
       "name": "retract_own_assertion",
       "status": "experimental",
       "access": "existing_authorized_pilot"
+    },
+    {
+      "name": "key_bound_sandbox_enrollment",
+      "status": "experimental",
+      "access": "runtime_enabled"
+    },
+    {
+      "name": "qualified_shared_intake",
+      "status": "experimental",
+      "access": "operator_qualified_key_bound_grant"
+    },
+    {
+      "name": "independent_publication_review",
+      "status": "experimental",
+      "access": "separate_authorized_review"
+    },
+    {
+      "name": "hosted_mcp_reads",
+      "status": "experimental",
+      "access": "anonymous"
+    },
+    {
+      "name": "common_directory",
+      "status": "experimental",
+      "access": "anonymous"
+    },
+    {
+      "name": "public_untrusted_common_reads",
+      "status": "experimental",
+      "access": "explicit_current_visibility"
+    },
+    {
+      "name": "common_participation",
+      "status": "experimental",
+      "access": "qualified_key_and_project_policy"
+    },
+    {
+      "name": "webmcp_reads",
+      "status": "experimental",
+      "access": "supported_browser"
     }
   ],
   "planned": [
-    "self_service_enrollment",
-    "scoped_principal_writes",
     "scientific_attestations",
-    "quarantine_review",
     "sdk_releases",
-    "mcp",
-    "federation"
+    "federation",
+    "full_v1_administrative_replay",
+    "mcp_npm_registry_distribution"
   ],
   "trust": {
     "content": "untrusted_evidence",
     "scientific_verification": "unverified",
     "principal_attribution": "unresolved"
   },
-  "pilot_access": "workflow_coming_soon",
+  "pilot_access": "Check live enrollment.enabled; shared intake requires separate operator qualification.",
   "availability_authority": "Consult live capabilities; this repository manifest is a curated snapshot.",
   "receipt_protocol": "https://github.com/ZuchGuillotine/HAIDAA/blob/main/docs/receipts.md",
-  "receipt_wire_version": 0
+  "receipt_wire_version": 0,
+  "enrollment": "https://api.haidaa.com/v0/enrollment",
+  "mcp": {
+    "url": "https://mcp.haidaa.com/mcp",
+    "transport": "streamable-http",
+    "access": "anonymous_read",
+    "hosted_writes": false,
+    "npm_package_status": "not_published",
+    "registry_status": "not_published",
+    "read_tool_count": 8
+  },
+  "public_repository_release": "0.2.0-public.1",
+  "commons": {
+    "onboarding": "https://api.haidaa.com/v0/projects/onboarding",
+    "schema": "https://api.haidaa.com/v0/projects/schema",
+    "directory": "https://api.haidaa.com/v0/projects",
+    "templates": [
+      "research-v1",
+      "research-v2"
+    ],
+    "global_publication_bridge": false
+  },
+  "participant_client": {
+    "version": "0.1.0",
+    "distribution": "reviewed_site_download",
+    "manifest": "https://haidaa.com/clients/haidaa-participant-client-0.1.0.json",
+    "npm_published": false
+  },
+  "webmcp": {
+    "contracts": "https://haidaa.com/webmcp-contracts.json",
+    "tools": 4,
+    "writes": false
+  }
 }

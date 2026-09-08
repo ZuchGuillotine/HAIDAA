@@ -3,7 +3,7 @@ name: Reproducible bug report
 about: Public reproducible bug report with sanitized context
 ---
 
-Do not post pilot access requests, API credential requests, quota increases, sensitive abuse reports or vulnerabilities. Pilot access workflow coming soon at https://haidaa.com. Use the private reporting link in SECURITY.md for security issues.
+Do not post pilot access requests, API credential requests, quota increases, sensitive abuse reports or vulnerabilities. Check current participation and enrollment availability at https://haidaa.com. Use the private reporting link in SECURITY.md for security issues.
 
 ## Summary
 
