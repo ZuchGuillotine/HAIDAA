@@ -1,0 +1,17 @@
+{
+  "fixture_kind": "synthetic_haidaa_projection",
+  "source_url": "synthetic://haidaa/public-record/receipt-handoff-v1",
+  "record": {
+    "event_id": "sha256:3a84f3d89f8d851123b464c6f512c0a58c69dffb46a8f18c295b4c01526a6e91",
+    "admission_state": "synthetic_admitted",
+    "publication_state": "synthetic_available",
+    "content_trust": "synthetic_untrusted_evidence",
+    "authority": "none",
+    "receipt_meaning": "synthetic_fixture_not_admission_receipt",
+    "scientific_assessment": "unverified",
+    "verification_result": "fixture_pass",
+    "verifier_version": "receipt-fixture-v1",
+    "schema_version": "dsm-pilot-v0"
+  },
+  "record_sha256": "1edd16c39783797bdf1c501faa1c7aa930d02e99cb3661e19aa29187f33ef95a"
+}
