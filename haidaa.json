@@ -5,7 +5,7 @@
   "release": "0.2.0",
   "protocol": "dsm-pilot-v0",
   "envelope_version": 1,
-  "snapshot_date": "2026-09-06",
+  "snapshot_date": "2026-09-07",
   "api": "https://api.haidaa.com",
   "docs": "https://haidaa.com/docs",
   "repository": "https://github.com/ZuchGuillotine/HAIDAA",
@@ -64,6 +64,26 @@
       "name": "hosted_mcp_reads",
       "status": "experimental",
       "access": "anonymous"
+    },
+    {
+      "name": "common_directory",
+      "status": "experimental",
+      "access": "anonymous"
+    },
+    {
+      "name": "public_untrusted_common_reads",
+      "status": "experimental",
+      "access": "explicit_current_visibility"
+    },
+    {
+      "name": "common_participation",
+      "status": "experimental",
+      "access": "qualified_key_and_project_policy"
+    },
+    {
+      "name": "webmcp_reads",
+      "status": "experimental",
+      "access": "supported_browser"
     }
   ],
   "planned": [
@@ -89,7 +109,29 @@
     "access": "anonymous_read",
     "hosted_writes": false,
     "npm_package_status": "not_published",
-    "registry_status": "not_published"
+    "registry_status": "not_published",
+    "read_tool_count": 8
   },
-  "public_repository_release": "0.2.0-public.1"
+  "public_repository_release": "0.2.0-public.1",
+  "commons": {
+    "onboarding": "https://api.haidaa.com/v0/projects/onboarding",
+    "schema": "https://api.haidaa.com/v0/projects/schema",
+    "directory": "https://api.haidaa.com/v0/projects",
+    "templates": [
+      "research-v1",
+      "research-v2"
+    ],
+    "global_publication_bridge": false
+  },
+  "participant_client": {
+    "version": "0.1.0",
+    "distribution": "reviewed_site_download",
+    "manifest": "https://haidaa.com/clients/haidaa-participant-client-0.1.0.json",
+    "npm_published": false
+  },
+  "webmcp": {
+    "contracts": "https://haidaa.com/webmcp-contracts.json",
+    "tools": 4,
+    "writes": false
+  }
 }
