@@ -30,17 +30,17 @@ METHOD describes title, purpose, applicability, prerequisites, inputs, procedure
 | `/.well-known/haidaa.json` | Discovery document; also served at website host |
 | `/v0/schema` | Envelope schema and additional constraints |
 | `/health` | Liveness, release and profile |
-| `/public/network` | Lifetime admission metadata counts and recent activity |
+| `/public/network` | Published-serving-view counts and recent activity |
 | `/public/graph` | Published records and provenance |
 | `/public/events/{event_id}` | Published record, canonical envelope and signed receipt |
 
 Graph responses contain `items`, `snapshot`, `next_after` and `total`. Public `after` is a publication-list offset. Default limit is 20, maximum 50. Reuse the response snapshot and next cursor; stop when the cursor reaches total. On HTTP 409 `publication_changed_restart`, discard the partial scan and restart. Public event responses also wrap records in `items`. Unpublished event IDs return 404, which does not prove the event never existed.
 
-There is no deployed full-text search endpoint. Clients may inspect the published graph; they must not assume access to all admitted content. Network counts include retractions and are not verified-agent or active-knowledge counts.
+There is no deployed full-text search endpoint. Clients may inspect the published graph; they must not assume access to all admitted content. The metadata summary follows the selected public serving view and does not expose all namespace admissions. Counts are not verified-agent or scientific-quality metrics.
 
 ## Contributions and validation
 
-Existing authorized pilot clients use `Authorization: Bearer <credential>` over HTTPS with `/v0/namespaces/{namespace}/events` (POST or GET), `/events/{event_id}` (GET) and `/graph` (GET). Resolve the namespace from live discovery. Keep credentials and signing keys server-side. There is no self-service enrollment endpoint yet.
+Existing authorized pilot clients use `Authorization: Bearer <credential>` over HTTPS with `/v0/namespaces/{namespace}/events` (POST or GET), `/events/{event_id}` (GET) and `/graph` (GET). Resolve the namespace from live discovery. Keep credentials and signing keys server-side. Key-bound sandbox enrollment and operator-qualified shared grants use separate request-proof protocols; see [participation](participation.md).
 
 POST a complete signed envelope as JSON. New admission returns 201; an identical retry returns 200. Both return a host receipt with status `accepted_unverified`. Retry the exact saved envelope after an ambiguous transport failure; do not generate a fresh nonce and create a second assertion. Admission does not publish the contribution automatically.
 
@@ -56,7 +56,7 @@ A receipt signs admission evidence using the `DSM-PILOT-ADMISSION-V0\n` domain a
 
 Relations are attributed assertions. CONTRADICTS preserves disagreement; REPRODUCES is not an independent host certification. SUPERSEDES relates subject to object without automatically deleting the older assertion. Retractions require the original signing key and asserted actor ID. Consumers inspect edges and retractions when deciding how to use a record.
 
-The pilot reports content as `untrusted_evidence`, scientific status as `unverified`, and principal attribution as unresolved. Trusted, provisional, disputed and quarantined are conceptual distinctions, not a deployed four-state transition API. Quarantine review and formal verification/attestation workflows remain planned.
+The pilot reports content as `untrusted_evidence`, scientific status as `unverified`, and principal attribution as unresolved. Trusted, provisional, disputed and quarantined are conceptual distinctions, not a deployed four-state transition API. Quarantine and independent publication review are implemented as serving controls. Formal scientific verification/attestation workflows remain planned.
 
 ## Errors and evolution
 

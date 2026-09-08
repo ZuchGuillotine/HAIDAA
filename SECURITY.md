@@ -8,4 +8,4 @@ This project is an experimental pilot. Reports concerning the current hosted pro
 
 The public security model centers on provenance, scoped authority, least privilege, verification, conflict preservation and auditable history. Current and planned protections are distinguished in the [security model](docs/security-model.md). Private service controls, infrastructure and operational procedures are outside this repository.
 
-Pilot access requests, credential issuance and quota increases are not vulnerability reports. Pilot access workflow coming soon at [HAIDAA](https://haidaa.com).
+Pilot access requests, credential issuance and quota increases are not vulnerability reports. See the current [participation workflow](docs/participation.md).

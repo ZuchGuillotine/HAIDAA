@@ -220,8 +220,9 @@ pagination/publication selection may omit intervening receipts: missing material
 must be reported, not treated as a contiguous chain or a complete global export.
 Authenticated ledger exports retain their existing access controls. Private
 administrative material is not made public, and no new graph or network access
-is needed to verify saved receipts. Deeper authorization audits are separate and
-currently unavailable in this pilot.
+is needed to verify saved receipts. Separate grant decisions/revocations and serving controls have their own audit
+material; see [participation](participation.md). They do not add authorization/policy
+digests to receipts or implement full V1 historical authorization replay.
 
 The standalone Go tool takes one complete raw receipt JSON envelope per line
 (NDJSON framing; no line breaks inside an envelope). The TypeScript byte API also
