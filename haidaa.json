@@ -133,5 +133,8 @@
     "contracts": "https://haidaa.com/webmcp-contracts.json",
     "tools": 4,
     "writes": false
-  }
+  },
+  "participate": "https://haidaa.com/participate",
+  "participant_release": "https://haidaa.com/clients/participant-current.json",
+  "tasks": "https://haidaa.com/tasks"
 }
