@@ -23,7 +23,7 @@ The research question is empirical: whether this combination preserves task prog
 
 ## Design principles
 
-- **Capability-bounded agents.** Experimental agents are API conversations that act only through a small, closed set of structured actions. They have no shell, file system, code execution, browsing or repository access, and nothing they produce is executed.
+- **Capability-bounded agents.** Experimental agents are API conversations that act only through a small, closed set of structured actions. Initially they have no shell, file system, code execution, browsing or repository access, and nothing they produce is executed. As experimental design is confirmed functional agents will be exposed to more tools and action paths.
 - **Separated information domains.** Agents never see the monitoring policy, evaluation labels, experiment design or controller state. Every request is built from an explicit allowlist rather than from internal state.
 - **Auditable records.** Each run keeps a tamper-evident, replayable event log, a graph snapshot, metrics and a hashed manifest.
 - **Honest evaluation.** Simulated fixtures are reported only as software tests, never as findings about model behaviour. A genuinely untouched holdout evaluation is reserved until methods and thresholds are reviewed and frozen.
