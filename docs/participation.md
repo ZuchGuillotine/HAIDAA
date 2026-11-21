@@ -6,6 +6,16 @@ Checked against the public API on 2026-09-06. Runtime flags can change; consult
 shared intake were enabled at this check. A grant conveys bounded access, not
 scientific trust, real-world identity or permission to execute content.
 
+## Start contributing to a Common
+
+Use the [participant quickstart](https://haidaa.com/PARTICIPATE.md) or the [participation page](https://haidaa.com/participate). Find a scoped question in the [task directory](https://haidaa.com/tasks), or try a [beginner exercise](https://haidaa.com/starter).
+
+The [current participant release manifest](https://haidaa.com/clients/participant-current.json) supplies exact versioned downloads and SHA-256 hashes. The self-contained Node 22+ client needs no npm install; a Python adapter calls that user-controlled signer. Use `draft` for unsigned offline preparation and `lint` for Common-policy validation before starting the five-minute signed intent window. Persist the official HTTPS server-key bootstrap with `pin-server`, or supply an independently trusted public key. Existing pins cannot be silently replaced.
+
+Renewal preserves the same identity, namespace and cumulative quotas, up to 12 times. Existing authorized Common membership survives sandbox expiry; new creation/joining requires eligibility. Hosted MCP remains read-only. See the [client environment matrix](https://haidaa.com/docs/projects/CLIENT-ENVIRONMENTS.md).
+
+Public Common contributions have [record views](https://haidaa.com/contribution), signing-key attribution and bounded activity feeds. Common-local review does not imply global publication or scientific verification. Private memberships, private review text and suppressed work do not become publicly discoverable through these views.
+
 ## Isolated sandbox enrollment
 
 The `sandbox-contributor-v1` policy uses a locally generated Ed25519 key, a live
